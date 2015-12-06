@@ -1,7 +1,7 @@
 ﻿/* Navigation
 		Description:
 			Hotkeys/Labels used to navigate GUI.
-			Enabled
+			Enabled only when gui is visible
 */
 
 ; Arrow keys or tab/shift tab for selection step. 
@@ -18,17 +18,14 @@ Left::
 	}
 return
 
-; Run selection, hide interface
+; Run selected entry or try to run input.
 Enter::
-	EnvGet, home, HOMEPATH
 	if (Match[Selected].path)
-		Run % Match[Selected].path, %home%
+		Run(Match[Selected].path)
 	else {
-		EnvGet, home, HOMEPATH
-		Run % InputBox, %home%
+		GuiControlGet, InputBox
+		Run(InputBox)
 	}
-	Gui, Hide
-	HotkeysState("Off")
 return
 
 ; Hide and reset

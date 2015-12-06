@@ -13,14 +13,12 @@
 /*	function Run(target)
 		Description:
 			Try to open target file. Hide gui and disable hotkeys on success.
-		Return:
-			ErrorLevel of Run command.
 */
 Run(target) {
-	Run, %target%, %Homepath%, UseErrorLevel
-	if !ErrorLevel {
-		Gui, Hide
-		HotkeysState("Off")
-	}
-	return ErrorLevel
+	EnvGet, homepath, HOMEPATH
+	Run, %target%, %homepath%, UseErrorLevel
+	if ErrorLevel
+		return
+	Gui, Hide
+	HotkeysState("Off")
 }

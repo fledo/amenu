@@ -28,6 +28,12 @@ Enter::
 	}
 return
 
+; Ignore selection and try to run Input
+^Enter::
+	GuiControlGet, InputBox
+	Run(InputBox)
+return
+
 ; Hide and reset
 Escape::
 	Gui, Hide

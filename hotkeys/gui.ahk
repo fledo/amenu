@@ -36,7 +36,5 @@ return
 
 ; Hide and reset
 Escape::
-	Gui, Hide
-	GuiControl, Text, InputBox
-	HotkeysState("Off")
+	GuiHide()
 return

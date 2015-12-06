@@ -9,6 +9,7 @@
 */
 
 ; Settings
+Suspend, On
 #Persistent
 #SingleInstance force
 #NoEnv 
@@ -19,12 +20,12 @@ SetWorkingDir, %A_AppData%\amenu
 Version = 0.1
 
 ; Initialize
-HotkeysState("Off")
 SettingsLoad()
 GuiCreate()
 Database := DatabaseLoad(DatabaseFile)
 
 ; Ready to work, register hotkey to show interface
+Suspend, Off
 Hotkey, %InterfaceHotkey%, GuiToggle 
 Return
 

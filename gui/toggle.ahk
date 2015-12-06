@@ -4,12 +4,8 @@
 				else hide the GUI
 */
 GuiToggle() {
-	if !WinActive("amenu v" . Version) {
- 		Gui, show
- 		HotkeysState("on")
-	} else {
-		Gui, Hide
-		HotkeysState("Off")
- 	}
- 	GuiControl, Text, InputBox
+	if !WinActive("amenu v" . Version)
+ 		GuiShow()
+	else
+		GuiHide()
 }

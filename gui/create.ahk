@@ -30,5 +30,5 @@ GuiCreate() {
 	
 	; Set initial GUI position
 	Gui, Show, w%w% h%h% x%x% y%y%, amenu v%Version%
-	Gui, Hide
+	GuiHide()
 }

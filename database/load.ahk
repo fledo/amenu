@@ -6,6 +6,8 @@
 			Array of Objects with name and path.
 */
 DatabaseLoad(databaseFile) {
+	if !FileExist(DatabaseFile)
+		DatabaseCreate(DatabaseFile)
 	database := Object()
 	Loop, read, %databaseFile%
 	{

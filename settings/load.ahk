@@ -5,6 +5,9 @@
 */
 SettingsLoad() {
 	global
+	if !FileExist("settings.ini") 
+		SettingsCreate()
+		
 	; Height, width and position of interface and elements
 	IniRead, W, settings.ini, position, InterfaceW, %A_ScreenWidth%
 	IniRead, H, settings.ini,  position, InterfaceH

@@ -29,23 +29,14 @@ SetBatchLines, -1
 FileEncoding, UTF-8
 SetWorkingDir, %A_AppData%\amenu
 
-; Disable gui hotkeys
+; Initialize
 HotkeysState("Off")
-
-; Load settings
-if !FileExist("settings.ini") 
-	SettingsCreate()
 SettingsLoad()
-
-; Create and hide GUI
 GuiCreate()
-
-; Load database
-if !FileExist(DatabaseFile)
-	DatabaseCreate(DatabaseFile)
 Database := DatabaseLoad(DatabaseFile)
 
-Hotkey, %InterfaceHotkey%, GuiToggle ; Ready to work, register hotkey to show interface
+; Ready to work, register hotkey to show interface
+Hotkey, %InterfaceHotkey%, GuiToggle 
 Return
 
 ; Labels

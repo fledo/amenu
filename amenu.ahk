@@ -8,10 +8,6 @@
 			github.com/fledo/amenu
 */
 
-; Includes
-#Include settings/create.ahk
-#Include settings/load.ahk
-
 ; Settings
 #Persistent
 #SingleInstance force
@@ -21,9 +17,22 @@ SetBatchLines, -1
 FileEncoding, UTF-8
 SetWorkingDir, %A_AppData%\amenu
 
+; Initialize
 if !FileExist("settings.ini") { 
 	SettingsCreate() ;FileInstall?
 }
 SettingsLoad()
+GuiCreate()
 
 Return
+
+; Functions
+#Include settings/create.ahk
+#Include settings/load.ahk
+#Include gui/center.ahk
+#Include gui/create.ahk
+#Include gui/read.ahk
+#Include gui/update.ahk
+
+; Labels
+#Include gui/tray.ahk

@@ -5,10 +5,10 @@
 GuiToggle() {
 	if !WinActive("amenu") { 
 		Gui, Show
-		NavigationHotkeys("On")
+		HotkeysState("On")
 	} else {
 		Gui, Hide
-		NavigationHotkeys("Off")
+		HotkeysState("Off")
 	}
 	GuiControl, Text, InputBox
 }

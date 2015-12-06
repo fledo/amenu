@@ -8,23 +8,6 @@
 			github.com/fledo/amenu
 */
 
-; Settings
-#Persistent
-#SingleInstance force
-#NoEnv 
-#NoTrayIcon
-SetBatchLines, -1
-FileEncoding, UTF-8
-SetWorkingDir, %A_AppData%\amenu
-
-; Initialize
-if !FileExist("settings.ini") { 
-	SettingsCreate() ;FileInstall?
-}
-SettingsLoad()
-GuiCreate()
-Return
-
 ; Functions
 #Include settings/create.ahk
 #Include settings/load.ahk
@@ -35,6 +18,36 @@ Return
 #Include gui/update.ahk
 #Include database/create.ahk
 #Include database/load.ahk
+#Include hotkeys/state.ahk
+
+; Settings
+#Persistent
+#SingleInstance force
+#NoEnv 
+#NoTrayIcon
+SetBatchLines, -1
+FileEncoding, UTF-8
+SetWorkingDir, %A_AppData%\amenu
+
+; Disable gui hotkeys
+HotkeysState("Off")
+
+; Load settings
+if !FileExist("settings.ini") 
+	SettingsCreate()
+SettingsLoad()
+
+; Create and hide GUI
+GuiCreate()
+
+; Load database
+if !FileExist(DatabaseFile)
+	DatabaseCreate(DatabaseFile)
+Database := DatabaseLoad(DatabaseFile)
+
+Hotkey, %InterfaceHotkey%, GuiToggle ; Ready to work, register hotkey to show interface
+Return
 
 ; Labels
 #Include gui/tray.ahk
+#Include hotkeys/navigation.ahk

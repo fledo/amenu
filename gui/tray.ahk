@@ -11,8 +11,8 @@ return
 
 Rescan:
 	Suspend, On
-	;DatabaseCreate(DatabaseFile)
-	;Database := DatabaseLoad(DatabaseFile)
+	DatabaseCreate(DatabaseFile)
+	Database := DatabaseLoad(DatabaseFile)
 	Suspend, Off
 return
 

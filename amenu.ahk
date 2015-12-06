@@ -23,7 +23,6 @@ if !FileExist("settings.ini") {
 }
 SettingsLoad()
 GuiCreate()
-
 Return
 
 ; Functions
@@ -33,6 +32,8 @@ Return
 #Include gui/create.ahk
 #Include gui/read.ahk
 #Include gui/update.ahk
+#Include database/create.ahk
+#Include database/load.ahk
 
 ; Labels
 #Include gui/tray.ahk

@@ -1,14 +1,15 @@
 ﻿/* function GuiToggle()
 		Description:
-				Hide/show GUI and clear InputBox
+				Show GUI if it's hidden or have lost focus
+				else hide the GUI
 */
 GuiToggle() {
-	if !WinActive("amenu") { 
-		Gui, Show
-		HotkeysState("On")
+	if !WinActive("amenu v" . Version) {
+ 		Gui, show
+ 		HotkeysState("on")
 	} else {
 		Gui, Hide
 		HotkeysState("Off")
-	}
-	GuiControl, Text, InputBox
+ 	}
+ 	GuiControl, Text, InputBox
 }

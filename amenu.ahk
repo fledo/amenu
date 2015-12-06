@@ -9,6 +9,8 @@
 */
 
 ; Includes
+#Include settings/create.ahk
+#Include settings/load.ahk
 
 ; Settings
 #Persistent
@@ -18,5 +20,10 @@
 SetBatchLines, -1
 FileEncoding, UTF-8
 SetWorkingDir, %A_AppData%\amenu
+
+if !FileExist("settings.ini") { 
+	SettingsCreate() ;FileInstall?
+}
+SettingsLoad()
 
 Return

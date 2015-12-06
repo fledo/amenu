@@ -6,9 +6,9 @@
 			Array of Objects with name and path.
 */
 DatabaseLoad(databaseFile) {
+	database := Object()
 	if !FileExist(DatabaseFile)
 		DatabaseCreate(DatabaseFile)
-	database := Object()
 	Loop, read, %databaseFile%
 	{
 		SplitPath, A_LoopReadLine , , , , name

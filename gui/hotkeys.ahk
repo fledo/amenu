@@ -4,18 +4,18 @@
 			Enabled only when gui is visible
 */
 
-; Arrow keys or tab/shift tab for selection step. 
+; Tab or right arrow to move selection right 
 Tab::
 Right::
-	if (Selected < Match.MaxIndex()) {
+	if (Selected < Match.MaxIndex())
 		GuiUpdate(+1)
-	}
 return
+
+; shift + Tab or left arrow to move selection left 
 +Tab::
 Left::
-	if (Selected > Match.MinIndex()) {
+	if (Selected > Match.MinIndex())
 		GuiUpdate(-1)
-	}
 return
 
 ; Run selected entry or try to run input.

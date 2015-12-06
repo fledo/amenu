@@ -1,12 +1,12 @@
 ﻿/*	function GuiCenter(hwnd)
-		Description:
-			Center text vertically in Edit element.
+      Description:
+         Center text vertically in Edit element.
 			
-		Parameter:
-			(hwnd) Window handle of specific control.
+      Parameter:
+         (hwnd) Window handle of specific control.
 		
-		Author:
-			"just me" http://ahkscript.org/boards/viewtopic.php?p=44099#p44099
+      Author:
+         "just me" http://ahkscript.org/boards/viewtopic.php?p=44099#p44099
 */
 GuiCenter(hwnd) {
    VarSetCapacity(RC, 16, 0)

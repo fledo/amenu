@@ -10,8 +10,7 @@ DatabaseCreate(DatabaseFile) {
 	sections := StrSplit(sections, "`n")
 	database :=
 	for key, section in sections {
-		if (key < 5) ; Skip settings sections
-			continue
+		(key < 5) ? continue ; Don't index settings sections
 		IniRead, path, settings.ini, %section%, path
 		IniRead, recursive, settings.ini, %section%, recursive
 		Loop, %path%\*.exe, , %recursive%

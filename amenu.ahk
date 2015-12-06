@@ -20,6 +20,7 @@ SetWorkingDir, %A_AppData%\amenu
 Version = 0.1
 
 ; Initialize
+#Include functions.ahk
 SettingsLoad()
 GuiCreate()
 Database := DatabaseLoad(DatabaseFile)
@@ -29,7 +30,6 @@ Suspend, Off
 Hotkey, %InterfaceHotkey%, GuiToggle 
 Return
 
-; Functions and labels
-#Include functions.ahk
+; GUI Labels
 #Include gui/tray.ahk
-#Include hotkeys/gui.ahk
+#Include gui/hotkeys.ahk

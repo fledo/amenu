@@ -8,7 +8,7 @@ DatabaseCreate(DatabaseFile) {
 	FileDelete, %DatabaseFile%
 	IniRead, sections, settings.ini
 	sections := StrSplit(sections, "`n")
-	file := FileOpen(DatabaseFile, "w")
+	database :=
 	for key, section in sections {
 		if (key < 5) ; Skip settings sections
 			continue
@@ -16,8 +16,10 @@ DatabaseCreate(DatabaseFile) {
 		IniRead, recursive, settings.ini, %section%, recursive
 		Loop, %path%\*.exe, , %recursive%
 		{
+			database := database . A_LoopFileFullPath "`n"
 			file.Write(A_LoopFileFullPath "`r`n")
 		}
 	}
-	file.Close() 	
+	Sort, database, \ CL U
+	FileAppend, %database%, %DatabaseFile% 	
 }

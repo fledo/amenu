@@ -19,6 +19,8 @@ GuiCreate() {
 	
 	; Create tray menu
 	Menu, Tray, NoStandard
+	Menu, Tray, add, amenu v%Version%, Exit
+	Menu, Tray, disable, amenu v%Version%
 	Menu, Tray, add, Restart
 	Menu, Tray, add, Rescan
 	Menu, Tray, add, Settings
@@ -27,6 +29,6 @@ GuiCreate() {
 		menu, Tray, Icon
 	
 	; Set initial GUI position
-	Gui, Show, w%w% h%h% x%x% y%y%, amenu
+	Gui, Show, w%w% h%h% x%x% y%y%, amenu v%Version%
 	Gui, Hide
 }

@@ -16,6 +16,7 @@
 SetBatchLines, -1
 FileEncoding, UTF-8
 SetWorkingDir, %A_AppData%\amenu
+Version = 0.1
 
 ; Initialize
 HotkeysState("Off")

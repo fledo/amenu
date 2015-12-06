@@ -8,18 +8,6 @@
 			github.com/fledo/amenu
 */
 
-; Functions
-#Include settings/create.ahk
-#Include settings/load.ahk
-#Include gui/center.ahk
-#Include gui/create.ahk
-#Include gui/read.ahk
-#Include gui/toggle.ahk
-#Include gui/update.ahk
-#Include database/create.ahk
-#Include database/load.ahk
-#Include hotkeys/state.ahk
-
 ; Settings
 #Persistent
 #SingleInstance force
@@ -39,6 +27,7 @@ Database := DatabaseLoad(DatabaseFile)
 Hotkey, %InterfaceHotkey%, GuiToggle 
 Return
 
-; Labels
+; Functions and labels
+#Include functions.ahk
 #Include gui/tray.ahk
-#Include hotkeys/navigation.ahk
+#Include hotkeys/gui.ahk

@@ -4,7 +4,7 @@
 #Include gui/center.ahk
 #Include gui/create.ahk
 #Include gui/hide.ahk
-#Include gui/hotkeys.ahk
+#Include gui/navigation.ahk
 #Include gui/read.ahk
 #Include gui/show.ahk
 #Include gui/toggle.ahk

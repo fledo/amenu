@@ -1,4 +1,4 @@
-﻿/* 	function GuiRead()
+/* 	function GuiRead()
 		Descrition:
 			Retreive user input and add matches from Database into arrays.
 			Select the first object in Match and update gui().

@@ -1,7 +1,6 @@
-﻿/* 	function SettingsCreate()
+/* 	function SettingsCreate()
 		Description:
 			Create deafault settings.ini under %appdata%/amenu.
-			Promt user to edit settings and reload amenu.
 */
 SettingsCreate() {
 	FileCreateDir, %A_AppData%\amenu

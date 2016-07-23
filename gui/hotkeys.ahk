@@ -1,16 +1,16 @@
-﻿/* Navigation
+/* Navigation
 		Description:
-			Hotkeys/Labels used to navigate GUI.
+			Hotkeys used to navigate GUI.
 			Enabled only when gui is visible
 */
 
-; Tab or right arrow to move selection right 
+; Move selection right 
 NavRight() {
 	if (Selected < Match.MaxIndex())
 		GuiUpdate(+1)
 }
 
-; shift + Tab or left arrow to move selection left 
+; Move selection left 
 NavLeft() {
 	if (Selected > Match.MinIndex())
 		GuiUpdate(-1)

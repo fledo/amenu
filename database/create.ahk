@@ -1,4 +1,4 @@
-﻿/*	function DatabaseCreate()
+/*	function DatabaseCreate()
 		Description:
 			Read all sections from settings.ini (excluding the first four).
 			Scan directories for .exe files.

@@ -1,4 +1,4 @@
-﻿/* 	tray
+/* 	tray
 		Description:
 			Labels used in the tray icon menu.
 */

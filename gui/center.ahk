@@ -1,4 +1,4 @@
-﻿/*	function GuiCenter(hwnd)
+/*	function GuiCenter(hwnd)
       Description:
          Center text vertically in Edit element.
 			

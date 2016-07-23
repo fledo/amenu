@@ -1,4 +1,4 @@
-﻿/* 	function GuiCreate() 
+/* 	function GuiCreate() 
 		Description:
 			Create GUI and tray icon menu.
 			Edit elements used instead of text element to avoid flickering

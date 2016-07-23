@@ -1,4 +1,4 @@
-﻿/*	function DatabaseLoad()
+/*	function DatabaseLoad()
 		Description:
 			Read paths from DatabaseFile and save filename and path in array.
 		

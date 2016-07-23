@@ -1,6 +1,6 @@
-﻿/*	function GuiHide()
+/*	function GuiHide()
 		Description:
-			Hide GUI, clear elements, disable gui hotkeys
+			Hide GUI, clear elements
 */
 GuiHide() {
 	Gui, Hide

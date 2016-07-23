@@ -1,6 +1,6 @@
-﻿/*	function GuiShow()
+/*	function GuiShow()
 		Description:
-			Show GUI, clear elements, enable gui hotkeys
+			Show GUI, clear elements
 */
 GuiShow() {
 	Gui, Show

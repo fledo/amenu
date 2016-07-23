@@ -1,4 +1,4 @@
-﻿; Functions organized by type
+; Functions organized by type
 #Include settings/create.ahk
 #Include settings/load.ahk
 #Include gui/center.ahk
@@ -15,7 +15,7 @@
 
 /*	function Run(target)
 		Description:
-			Try to open target file. Hide gui and disable hotkeys on success.
+			Try to open target file and hide gui.
 */
 Run(target) {
 	EnvGet, homepath, HOMEPATH

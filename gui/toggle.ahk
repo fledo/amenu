@@ -1,4 +1,4 @@
-﻿/* function GuiToggle()
+/* function GuiToggle()
 		Description:
 				Show GUI if it's hidden or have lost focus
 				else hide the GUI

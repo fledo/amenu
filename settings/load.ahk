@@ -1,4 +1,4 @@
-﻿/* 	function SettingsLoad()
+/* 	function SettingsLoad()
 		Description:
 			Load the following sections from settings.ini:
 			position, apperance, delimiter, misc.

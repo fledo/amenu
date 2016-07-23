@@ -1,4 +1,4 @@
-﻿/*	amenu
+/*	amenu
 		Description:
 			Lists executables found in specific directories.
 			Very much inspired by dmenu (http://tools.suckless.org/dmenu/).

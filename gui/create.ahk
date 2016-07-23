@@ -1,7 +1,7 @@
 /* 	function GuiCreate() 
 		Description:
 			Create GUI and tray icon menu.
-			Edit elements used instead of text element to avoid flickering
+			Edit elements used instead of text element to avoid flickering.
 */
 
 GuiCreate() {
@@ -17,18 +17,6 @@ GuiCreate() {
 	GuiCenter(Search)
 	GuiCenter(Result)
 	
-	; Create tray menu
-	Menu, Tray, NoStandard
-	Menu, Tray, add, amenu v%Version%, Exit
-	Menu, Tray, disable, amenu v%Version%
-	Menu, Tray, add, Restart
-	Menu, Tray, add, Rescan
-	Menu, Tray, add, Settings
-	Menu, Tray, add, Exit
-	if (ShowTrayIcon)
-		menu, Tray, Icon
-	
 	; Set initial GUI position
-	Gui, Show, w%W% h%H% x%X% y%Y%, amenu v%Version%
-	GuiHide()
+	Gui, Show, Hide w%W% h%H% x%X% y%Y%, amenu v%Version%
 }

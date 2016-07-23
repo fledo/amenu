@@ -1,4 +1,4 @@
-/*	amenu
+/*	amenu.ahk
 		Description:
 			Lists executables found in specific directories.
 			Very much inspired by dmenu (http://tools.suckless.org/dmenu/).
@@ -8,33 +8,38 @@
 			github.com/fledo/amenu
 */
 
-; Settings
+; AHK Settings
 #Persistent
 #SingleInstance force
 #NoEnv 
 #NoTrayIcon
+#Include functions.ahk
 SetBatchLines, -1
 FileEncoding, UTF-8
 SetWorkingDir, %A_AppData%\amenu
-Version = 0.1
 
-; Initialize
-#Include functions.ahk
-SettingsLoad()
-GuiCreate()
-Global Database := DatabaseLoad(DatabaseFile)
+; Variables
+Global Version = 0.1
+Global Database
 Global Selected
 Global Match
 Global InputBox
 
-; Ready to work, register hotkey to show interface
+; amenu settings
+SettingsLoad()
+Database := DatabaseLoad(DatabaseFile)
+GuiCreate()
+if (ShowTrayIcon)
+	TrayCreate()
+
+; Ready to work, register hotkeys
 Hotkey, %InterfaceHotkey%, GuiToggle 
 Hotkey, IfWinActive, amenu v%Version%
-Hotkey, Tab, NavRight
-Hotkey, Right, NavRight
-Hotkey, +Tab, NavLeft
-Hotkey, Left, NavLeft
-Hotkey, Enter, NavRun
-Hotkey, +Enter, NavRunInput
-Hotkey, Escape, NavEscape
+Hotkey, Tab, GuiRight
+Hotkey, Right, GuiRight
+Hotkey, +Tab, GuiLeft
+Hotkey, Left, GuiLeft
+Hotkey, Enter, GuiRun
+Hotkey, +Enter, GuiRunInput
+Hotkey, Escape, GuiHide
 Return

@@ -9,7 +9,6 @@
 */
 
 ; Settings
-Suspend, On
 #Persistent
 #SingleInstance force
 #NoEnv 
@@ -29,7 +28,6 @@ Global Match
 Global InputBox
 
 ; Ready to work, register hotkey to show interface
-Suspend, Off
 Hotkey, %InterfaceHotkey%, GuiToggle 
 Hotkey, IfWinActive, amenu v%Version%
 Hotkey, Tab, NavRight

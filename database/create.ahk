@@ -9,7 +9,7 @@ DatabaseCreate(DatabaseFile) {
 	IniRead, sections, settings.ini
 	sections := StrSplit(sections, "`n")
 	for key, section in sections {
-		(key < 5) ? continue ; Don't index settings sections
+		(key < 6) ? continue ; Don't index settings sections
 		IniRead, path, settings.ini, %section%, path
 		IniRead, recursive, settings.ini, %section%, recursive
 		Loop, %path%\*.exe, , %recursive%

@@ -5,36 +5,39 @@
 */
 
 ; Tab or right arrow to move selection right 
-Tab::
-Right::
+NavRight() {
+	global
 	if (Selected < Match.MaxIndex())
 		GuiUpdate(+1)
-return
+}
 
 ; shift + Tab or left arrow to move selection left 
-+Tab::
-Left::
+NavLeft() {
+	global
 	if (Selected > Match.MinIndex())
 		GuiUpdate(-1)
-return
+}
 
 ; Run selected entry or try to run input.
-Enter::
+NavRun() {
+	global
 	if (Match[Selected].path)
 		Run(Match[Selected].path)
 	else {
 		GuiControlGet, InputBox
 		Run(InputBox)
 	}
-return
+}
 
 ; Ignore selection and try to run Input
-^Enter::
+NavRunInput() {
+	global
 	GuiControlGet, InputBox
 	Run(InputBox)
-return
+}
 
 ; Hide and reset
-Escape::
+NavEscape() {
+	global
 	GuiHide()
-return
+}

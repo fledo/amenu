@@ -28,8 +28,15 @@ Database := DatabaseLoad(DatabaseFile)
 ; Ready to work, register hotkey to show interface
 Suspend, Off
 Hotkey, %InterfaceHotkey%, GuiToggle 
+Hotkey, IfWinActive, amenu v0.1
+Hotkey, Tab, NavRight
+Hotkey, Right, NavRight
+Hotkey, +Tab, NavLeft
+Hotkey, Left, NavLeft
+Hotkey, Enter, NavRun
+Hotkey, +Enter, NavRunInput
+Hotkey, Escape, NavEscape
 Return
 
 ; GUI Labels
 #Include gui/tray.ahk
-#Include gui/hotkeys.ahk

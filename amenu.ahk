@@ -40,6 +40,3 @@ Hotkey, Enter, NavRun
 Hotkey, +Enter, NavRunInput
 Hotkey, Escape, NavEscape
 Return
-
-; GUI Labels
-#Include gui/tray.ahk

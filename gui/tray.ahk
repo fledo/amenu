@@ -2,20 +2,21 @@
 		Description:
 			Labels used in the tray icon menu.
 */
-Exit:
+Exit() {
 	exitApp
+}
 
-Restart:
+Restart() {
 	reload
-return
+}
 
-Rescan:
+Rescan(){
 	Suspend, On
 	DatabaseCreate(DatabaseFile)
 	Database := DatabaseLoad(DatabaseFile)
 	Suspend, Off
-return
+}
 
-Settings:
+Settings(){
 	run open settings.ini
-return
+}

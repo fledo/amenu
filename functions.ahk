@@ -8,6 +8,7 @@
 #Include gui/read.ahk
 #Include gui/show.ahk
 #Include gui/toggle.ahk
+#Include gui/tray.ahk
 #Include gui/update.ahk
 #Include database/create.ahk
 #Include database/load.ahk

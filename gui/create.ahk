@@ -29,6 +29,6 @@ GuiCreate() {
 		menu, Tray, Icon
 	
 	; Set initial GUI position
-	Gui, Show, w%w% h%h% x%x% y%y%, amenu v%Version%
+	Gui, Show, w%W% h%H% x%X% y%Y%, amenu v%Version%
 	GuiHide()
 }

@@ -23,12 +23,15 @@ Version = 0.1
 #Include functions.ahk
 SettingsLoad()
 GuiCreate()
-Database := DatabaseLoad(DatabaseFile)
+Global Database := DatabaseLoad(DatabaseFile)
+Global Selected
+Global Match
+Global InputBox
 
 ; Ready to work, register hotkey to show interface
 Suspend, Off
 Hotkey, %InterfaceHotkey%, GuiToggle 
-Hotkey, IfWinActive, amenu v0.1
+Hotkey, IfWinActive, amenu v%Version%
 Hotkey, Tab, NavRight
 Hotkey, Right, NavRight
 Hotkey, +Tab, NavLeft

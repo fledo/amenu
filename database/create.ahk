@@ -8,7 +8,6 @@ DatabaseCreate(DatabaseFile) {
 	FileDelete, %DatabaseFile%
 	IniRead, sections, settings.ini
 	sections := StrSplit(sections, "`n")
-	database :=
 	for key, section in sections {
 		(key < 5) ? continue ; Don't index settings sections
 		IniRead, path, settings.ini, %section%, path

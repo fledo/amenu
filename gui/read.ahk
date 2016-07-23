@@ -4,11 +4,11 @@
 			Select the first object in Match and update gui().
 */
 GuiRead() {
-	; Access Database, reset Match and current selection.
- 	Global Database
-	Global Selected := 1
-	Global Match := Object() 
+	; Reset selection
+	Selected := 1
+	Match := Object() 
 	matchSecondary := Object()
+	
 	GuiControlGet, InputBox
 	GuiControl, Text, SearchBox, %InputBox%
 	if !InputBox

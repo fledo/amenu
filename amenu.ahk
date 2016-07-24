@@ -24,7 +24,7 @@ FileEncoding, UTF-8
 SetWorkingDir, %A_AppData%\amenu
 
 ; Variables
-Global Version = 0.1
+Global Version = 0.2
 Global Database
 Global Selected
 Global Match

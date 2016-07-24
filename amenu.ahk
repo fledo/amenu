@@ -32,6 +32,8 @@ Global InputBox
 
 ; amenu settings
 SettingsLoad()
+if !FileExist(DatabaseFile)
+	DatabaseCreate(DatabaseFile)
 Database := DatabaseLoad(DatabaseFile)
 GuiCreate()
 if (ShowTrayIcon)

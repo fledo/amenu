@@ -26,6 +26,7 @@ TrayRestart() {
 
 ; Scan directories and build database
 TrayRescan(){
+	global DatabaseFile
 	Suspend, On
 	DatabaseCreate(DatabaseFile)
 	Database := DatabaseLoad(DatabaseFile)

@@ -9,13 +9,16 @@ DatabaseCreate(DatabaseFile) {
 	IniRead, sections, settings.ini
 	sections := StrSplit(sections, "`n")
 	for key, section in sections {
-		(key < 6) ? continue ; Don't index settings sections
+		if (key < 6) 
+			continue ; Don't index settings sections
 		IniRead, path, settings.ini, %section%, path
 		IniRead, recursive, settings.ini, %section%, recursive
-		Loop, %path%\*.exe, , %recursive%
-		{
-			database := database . A_LoopFileFullPath "`n"
-			file.Write(A_LoopFileFullPath "`r`n")
+		if InStr(FileExist(path), "D") {
+			Loop, %path%\*.exe, , %recursive%
+			{
+				database := database . A_LoopFileFullPath "`n"
+				file.Write(A_LoopFileFullPath "`r`n")
+			}
 		}
 	}
 	Sort, database, \ CL U

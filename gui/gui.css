@@ -1,0 +1,70 @@
+/* 
+	Changes in this section affect of all parts of the GUI, 
+	To override settings here for for other, edit the other secetions.
+*/
+body,div {
+	/* Font to use with any sans-serif as fallback. */
+	font-family: Lucida Console, sans-serif;
+	
+	/* Size of the font */
+	font-size: 12px;
+	
+	/* Color of the font */
+	color: #28e0e0;
+	
+	/* Background color of all elements */
+	background-color: #333333;
+	
+	/* Height of all elements */
+	height: 20px;
+	line-height: 20px;
+	
+	/* Transparent margin around all elements */
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	
+	/* Padding around all elements in the same color as the background */
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 0;
+	padding-top: 0;
+	
+	/* Place all elements side by side */
+	float: left;
+}
+
+/* 
+	Changes affect the search box
+*/
+#search {
+	/* Width of the search box */
+	width: 100px;
+}
+
+/* 
+	Changes affect the result box
+*/
+#result {
+	/* Use all available space right of the search box */
+	float: none; 
+}
+
+/* 
+	Changes affect the selected result
+*/
+.selected {
+	/* background color of the selected result */
+	background-color: #28e0e0;
+	
+	/* font color of the selected result */
+	color: #333333;
+}
+
+/* 
+	Style for results which are not selected 
+*/
+.normal {
+
+}

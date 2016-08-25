@@ -10,7 +10,7 @@ GuiRead() {
 	matchSecondary := Object()
 	
 	GuiControlGet, InputBox
-	GuiControl, Text, SearchBox, %InputBox%
+	GuiSet("search", InputBox)
 	if !InputBox
 		return
 	for key, file in Database {

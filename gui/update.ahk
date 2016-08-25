@@ -1,20 +1,18 @@
 /*	function GuiUpdate(step)
 		Description:
-			Updates the text in ResultBox with entries from the Match array.
-			Marks selected entry with special delimiters.
+			Updates the result div with entries from the Match array.
 		
 		Paramaters:
 			(step) Optional. Increment/decrement Selection integer.
 */
 GuiUpdate(step := 0) {
-	local text
 	Selected += step
 	for key, object in Match {
 		if (key = Selected) {
-			text := text . DelimiterLeft . object.name . DelimiterRight
+			text := text . "<div id='selected'>" . object.name . "</div>"
 		} else {
-			text := text . DelimiterNormal . object.name . DelimiterNormal
+			text := text . "<div>" . object.name . "</div>"
 		}
 	}
-	GuiControl, Text, ResultBox, %text%
+	GuiSet("result", text)
 }

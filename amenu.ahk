@@ -6,11 +6,9 @@
 		Acknowledgements:
 			 - amenu is Very much inspired by [dmenu](http://tools.suckless.org/dmenu/).
 			 - amenu is written in [AHK](http://www.ahkscript.org/) 
-			 - The function "GuiCenter()" is written by user "just me" [ahkscript.org](http://ahkscript.org/boards/viewtopic.php?p=44099)
 			
 		Author:
 			Fred Uggla <fred.uggla@gmail.com>
-			
 */
 
 ; AHK Settings

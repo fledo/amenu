@@ -1,7 +1,6 @@
 /*	
 	gui/functions.ahk
 */
-#Include gui/center.ahk
 #Include gui/create.ahk
 #Include gui/interact.ahk
 #Include gui/read.ahk
@@ -10,15 +9,20 @@
 ; Hide GUI, clear elements
 GuiHide() {
 	Gui, Hide
-	GuiControl, Text, ResultBox
 	GuiControl, Text, InputBox
+	GuiSet("result")
+	GuiSet("search")
 }
 
-; Show GUI, clear elements
+; Show GUI
 GuiShow() {
 	Gui, Show
-	GuiControl, Text, ResultBox
-	GuiControl, Text, InputBox
+}
+
+; Change inner html of GUI element
+GuiSet(Id, html := "") {
+	global WB
+	WB.Document.getElementById(Id).innerHTML := html
 }
 
 ; Show GUI if it's hidden or have lost focus else hide the GUI

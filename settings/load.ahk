@@ -9,17 +9,10 @@ SettingsLoad() {
 		SettingsCreate()
 		
 	; Height, width and position of interface and elements
-	IniRead, W, settings.ini, position, InterfaceW, %A_ScreenWidth%
-	IniRead, H, settings.ini,  position, InterfaceH
-	IniRead, X, settings.ini, position, InterfaceX
-	IniRead, Y, settings.ini, position, InterfaceY
-	IniRead, SearchBoxWidth, settings.ini, position, SearchBoxWidth
-	
-	; Color and font settings
-	IniRead, BackgroundColor, settings.ini, apperance, BackgroundColor
-	IniRead, FontColor, settings.ini, apperance, FontColor
-	IniRead, FontName, settings.ini, apperance, FontName
-	IniRead, FontSize, settings.ini, apperance, FontSize
+	IniRead, W, settings.ini, interface, InterfaceW, %A_ScreenWidth%
+	IniRead, H, settings.ini,  interface, InterfaceH
+	IniRead, X, settings.ini, interface, InterfaceX
+	IniRead, Y, settings.ini, interface, InterfaceY
 	
 	; Misc settings
 	IniRead, DatabaseFile, settings.ini, misc, DatabaseFile

@@ -3,28 +3,29 @@
 			Load the following sections from settings.ini:
 			position, apperance, delimiter, misc.
 */
+
 SettingsLoad() {
 	global
 	if !FileExist("settings.ini") 
 		SettingsCreate()
-		
-	; Height, width and position of interface and elements
-	IniRead, Width, settings.ini, interface, Width, %A_ScreenWidth%
-	IniRead, Height, settings.ini,  interface, Height
-	IniRead, X, settings.ini, interface, X
-	IniRead, Y, settings.ini, interface, Y
 	
-	; Misc settings
-	IniRead, DatabaseFile, settings.ini, misc, DatabaseFile
-	IniRead, ShowTrayIcon, settings.ini, misc, ShowTrayIcon
+	; Interface
+	Width := IniRead("interface", "Width", A_ScreenWidth)
+	Height := IniRead("interface", "Height")
+	X := IniRead("interface", "X")
+	Y := IniRead("interface", "Y")
 	
-	; Hotkey settings
-	IniRead, Toggle, settings.ini, hotkey, Toggle
-	IniRead, Right, settings.ini, hotkey, Right
-	IniRead, Right2, settings.ini, hotkey, Right2
-	IniRead, Left, settings.ini, hotkey, Left
-	IniRead, Left2, settings.ini, hotkey, Left2
-	IniRead, RunSelection, settings.ini, hotkey, RunSelection
-	IniRead, RunPattern, settings.ini, hotkey, RunPattern
-	IniRead, Hide, settings.ini, hotkey, Hide
+	; Misc
+	DatabaseFile := IniRead("misc", "DatabaseFile")
+	ShowTrayIcon := IniRead("misc", "ShowTrayIcon")
+
+	; Hotkey
+	Toggle := IniRead("hotkey", "Toggle")
+	Right := IniRead("hotkey", "Right")
+	Right2 := IniRead("hotkey", "Right2")
+	Left := IniRead("hotkey", "Left")
+	Left2 := IniRead("hotkey", "Left2")
+	RunSelection := IniRead("hotkey", "RunSelection")
+	RunPattern := IniRead("hotkey", "RunPattern")
+	Hide := IniRead("hotkey", "Hide")
 }

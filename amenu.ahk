@@ -38,13 +38,13 @@ if (ShowTrayIcon)
 	TrayCreate()
 
 ; Ready to work, register hotkeys
-Hotkey, %GuiToggle%, GuiToggle 
+Hotkey, %Toggle%, GuiToggle
 Hotkey, IfWinActive, amenu v%Version%
-Hotkey, %GuiRight%, GuiRight
-Hotkey, %GuiRight2%, GuiRight
-Hotkey, %GuiLeft%, GuiLeft
-Hotkey, %GuiLeft2%, GuiLeft
-Hotkey, %GuiRun%, GuiRun
-Hotkey, %GuiRunInput%, GuiRunInput
-Hotkey, %GuiHide%, GuiHide
+Hotkey, %Right%, GuiRight
+Hotkey, %Right2%, GuiRight
+Hotkey, %Left%, GuiLeft
+Hotkey, %Left2%, GuiLeft
+Hotkey, %Run%, GuiRun
+Hotkey, %TryRun%, GuiTryRun
+Hotkey, %Hide%, GuiHide
 Return

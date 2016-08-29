@@ -9,22 +9,22 @@ SettingsLoad() {
 		SettingsCreate()
 		
 	; Height, width and position of interface and elements
-	IniRead, W, settings.ini, interface, InterfaceW, %A_ScreenWidth%
-	IniRead, H, settings.ini,  interface, InterfaceH
-	IniRead, X, settings.ini, interface, InterfaceX
-	IniRead, Y, settings.ini, interface, InterfaceY
+	IniRead, Width, settings.ini, interface, Width, %A_ScreenWidth%
+	IniRead, Height, settings.ini,  interface, Height
+	IniRead, X, settings.ini, interface, X
+	IniRead, Y, settings.ini, interface, Y
 	
 	; Misc settings
 	IniRead, DatabaseFile, settings.ini, misc, DatabaseFile
 	IniRead, ShowTrayIcon, settings.ini, misc, ShowTrayIcon
 	
 	; Hotkey settings
-	IniRead, GuiToggle, settings.ini, hotkey, GuiToggle
-	IniRead, GuiRight, settings.ini, hotkey, GuiRight
-	IniRead, GuiRight2, settings.ini, hotkey, GuiRight2
-	IniRead, GuiLeft, settings.ini, hotkey, GuiLeft
-	IniRead, GuiLeft2, settings.ini, hotkey, GuiLeft2
-	IniRead, GuiRun, settings.ini, hotkey, GuiRun
-	IniRead, GuiRunInput, settings.ini, hotkey, GuiRunInput
-	IniRead, GuiHide, settings.ini, hotkey, GuiHide
+	IniRead, Toggle, settings.ini, hotkey, Toggle
+	IniRead, Right, settings.ini, hotkey, Right
+	IniRead, Right2, settings.ini, hotkey, Right2
+	IniRead, Left, settings.ini, hotkey, Left
+	IniRead, Left2, settings.ini, hotkey, Left2
+	IniRead, Run, settings.ini, hotkey, Run
+	IniRead, TryRun, settings.ini, hotkey, TryRun
+	IniRead, Hide, settings.ini, hotkey, Hide
 }

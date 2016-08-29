@@ -10,9 +10,9 @@ GuiCreate() {
 		FileInstall, gui/gui.css, gui.css, 1
 	Gui, +AlwaysOnTop -Resize -SysMenu -Caption +Owner
 	Gui, Add, Edit, w0 h0 vInputBox gGuiRead ; Triggers GuiRead() on input.
-	Gui Add, ActiveX, x0 y0 w%W% h%H% vWB, Shell.Explorer2  ; 2 removes scroll-bar
+	Gui Add, ActiveX, x0 y0 w%Width% h%Height% vWB, Shell.Explorer2  ; 2 removes scroll-bar
 	WB.Navigate(A_AppData . "\amenu\gui.html")
 	while WB.ReadyState != 4
 	Sleep 10
-	Gui, Show, x%X% y%Y% w%W% h%H%, amenu v%Version%
+	Gui, Show, x%X% y%Y% w%Width% h%Height%, amenu v%Version%
 }

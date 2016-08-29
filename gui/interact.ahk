@@ -19,13 +19,13 @@ GuiRun() {
 	if (Match[Selected].path)
 		Run(Match[Selected].path)
 	else {
-		GuiRunInput()
+		GuiTryRun()
 	}
 }
 
 ; Ignore selection and try to run Input
 ; Example input "c:" would open explorer C: even though it's not a exe.
-GuiRunInput() {
+GuiTryRun() {
 	GuiControlGet, InputBox
 	Run(InputBox)
 }

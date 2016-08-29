@@ -24,7 +24,7 @@ SettingsLoad() {
 	IniRead, Right2, settings.ini, hotkey, Right2
 	IniRead, Left, settings.ini, hotkey, Left
 	IniRead, Left2, settings.ini, hotkey, Left2
-	IniRead, Run, settings.ini, hotkey, Run
-	IniRead, TryRun, settings.ini, hotkey, TryRun
+	IniRead, RunSelection, settings.ini, hotkey, RunSelection
+	IniRead, RunPattern, settings.ini, hotkey, RunPattern
 	IniRead, Hide, settings.ini, hotkey, Hide
 }

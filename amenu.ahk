@@ -44,7 +44,7 @@ Hotkey, %Right%, GuiRight
 Hotkey, %Right2%, GuiRight
 Hotkey, %Left%, GuiLeft
 Hotkey, %Left2%, GuiLeft
-Hotkey, %Run%, GuiRun
-Hotkey, %TryRun%, GuiTryRun
+Hotkey, %RunSelection%, GuiRun
+Hotkey, %RunPattern%, GuiRun
 Hotkey, %Hide%, GuiHide
 Return

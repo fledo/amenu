@@ -14,18 +14,15 @@ GuiLeft() {
 		GuiUpdate(-1)
 }
 
-; Run selected entry or try to run input.
+; Run the current match. If there are no matches, or if the RunPattern hotkey 
+; was pressed, try running the search pattern
 GuiRun() {
-	if (Match[Selected].path)
-		Run(Match[Selected].path)
-	else {
-		GuiTryRun()
-	}
-}
-
-; Ignore selection and try to run Input
-; Example input "c:" would open explorer C: even though it's not a exe.
-GuiTryRun() {
-	GuiControlGet, InputBox
-	Run(InputBox)
+	global RunPattern
+	if (!Match[Selected] or A_ThisHotkey = RunPattern)
+		GuiControlGet, target,, InputBox
+	else
+		target := Match[Selected].path
+	Run, % target, % A_Desktop, UseErrorLevel
+	if !ErrorLevel
+		GuiHide()
 }

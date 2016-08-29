@@ -13,3 +13,9 @@ Run(target) {
 	if !ErrorLevel
 		GuiHide()
 }
+
+; Display error and exit
+Error(string) {
+	MsgBox, 48, amenu v%Version% Error, % string ".`n`namenu will now exit."
+	ExitApp
+}

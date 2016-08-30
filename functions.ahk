@@ -47,6 +47,7 @@ Restart() {
 Rescan(){
 	global DatabaseFile
 	Suspend, On
+	Gui, +Disabled
 	DatabaseCreate(DatabaseFile)
 	Database := DatabaseLoad(DatabaseFile)
 	Suspend, Off

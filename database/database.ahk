@@ -7,14 +7,17 @@
 */
 DatabaseCreate(file) {
 	sections := SubStr(IniRead(), 23) ; Strip [interface], [hotkey], [misc]
+	GuiShow()
 	loop, parse, sections, `n
 	{
+		GuiSet("search", A_LoopField)
 		path := IniRead(A_LoopField, "path")
 		recursive := IniRead(A_LoopField, "recursive")
 		if DirExist(path) {
 			Loop, % path "\*.exe", , % recursive
 			{
 				database .= A_LoopFileFullPath "`n"
+				GuiSet("result", A_LoopFileFullPath)
 			}
 		}
 	}

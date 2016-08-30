@@ -1,7 +1,3 @@
-/* 	
-	tray/tray.ahk
-*/
-
 ; Create tray menu
 TrayCreate() {
 	Menu, Tray, NoStandard

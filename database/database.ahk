@@ -1,13 +1,4 @@
-/*	
-	database/database.ahk
-*/
-
-/*	function DatabaseCreate()
-		Description:
-			Read all sections from settings.ini (excluding the first four).
-			Scan directories for .exe files.
-			Append full file path to DatabaseFile.
-*/
+; Scan folders och populate database with full paths to exe files
 DatabaseCreate(DatabaseFile) {
 	FileDelete, %DatabaseFile%
 	IniRead, sections, settings.ini
@@ -29,13 +20,8 @@ DatabaseCreate(DatabaseFile) {
 	FileAppend, %database%, %DatabaseFile% 	
 }
 
-/*	function DatabaseLoad()
-		Description:
-			Read paths from DatabaseFile and save filename and path in array.
-		
-		Return:
-			Array of Objects with name and path.
-*/
+
+; Build and return array of objects with name and path to executable files.
 DatabaseLoad(DatabaseFile) {
 	database := Object()
 	if FileExist(DatabaseFile) {

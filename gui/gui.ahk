@@ -1,7 +1,3 @@
-/*	
-	gui/gui.ahk
-*/
-
 ; Create GUI and tray icon menu.
 GuiCreate() {
 	global
@@ -18,8 +14,7 @@ GuiCreate() {
 	Gui, Show, x%X% y%Y% w%Width% h%Height%, amenu v%Version%
 }
 
-; Run the current match. If there are no matches, or if the RunPattern hotkey 
-; was pressed, try running the search pattern
+; Run the current search pattern or the current selection
 GuiRun() {
 	global RunPattern
 	if (!Match[Selected] or A_ThisHotkey = RunPattern)
@@ -31,11 +26,8 @@ GuiRun() {
 		GuiHide()
 }
 
-/* 	function GuiRead()
-		Descrition:
-			Retreive user input and add matches from Database into arrays.
-			Select the first object in Match and update gui().
-*/
+
+; Retreive user input and add matches from Database into arrays.
 GuiRead() {
 	; Reset selection
 	Selected := 1
@@ -54,15 +46,13 @@ GuiRead() {
 			matchSecondary.push({name:file.name, path:file.path})
  	}
 	Match.push(matchSecondary*) ; Add secondary matches to the array of good matches
-	GuiUpdate()
+	GuiUpdate() ; Update GUI with new content
 }
 
-/*	function GuiUpdate(step)
-		Description:
-			Updates the result div with entries from the Match array.
-		
-		Paramaters:
-			(step) Optional. Increment/decrement Selection integer.
+/*
+	Updates the result div with entries from the Match array.
+		step
+			Increment/decrement Selection integer. Changes current selection.
 */
 GuiUpdate(step := 0) {
 	Selected += step

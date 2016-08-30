@@ -2,7 +2,7 @@
 	functions.ahk
 */
 #Include settings/functions.ahk
-#Include database/functions.ahk
+#Include database/database.ahk
 #include gui/gui.ahk
 #Include tray/functions.ahk
 

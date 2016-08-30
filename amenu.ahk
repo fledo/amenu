@@ -34,8 +34,6 @@ if !FileExist(DatabaseFile)
 	DatabaseCreate(DatabaseFile)
 Database := DatabaseLoad(DatabaseFile)
 GuiCreate()
-if (ShowTrayIcon)
-	TrayCreate()
 
 ; Ready to work, register hotkeys
 Hotkey, %Toggle%, GuiToggle

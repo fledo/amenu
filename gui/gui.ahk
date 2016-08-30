@@ -12,6 +12,17 @@ GuiCreate() {
 	while WB.ReadyState != 4
 	Sleep 10
 	Gui, Show, x%X% y%Y% w%Width% h%Height%, amenu v%Version%
+
+	if ShowTrayIcon {
+		Menu, Tray, NoStandard
+		Menu, Tray, add, amenu v%Version%, Exit
+		Menu, Tray, disable, amenu v%Version%
+		Menu, Tray, add, Restart, Restart
+		Menu, Tray, add, Rescan, Rescan
+		Menu, Tray, add, Settings, SettingsOpen
+		Menu, Tray, add, Exit, Exit
+		menu, Tray, Icon
+	}
 }
 
 ; Run the current search pattern or the current selection

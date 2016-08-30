@@ -36,3 +36,8 @@ SettingsLoad() {
 	RunPattern := IniRead("hotkey", "RunPattern")
 	Hide := IniRead("hotkey", "Hide")
 }
+
+; Open settings
+SettingsOpen(){
+	run open settings.ini
+}

@@ -4,7 +4,6 @@
 #Include settings/settings.ahk
 #Include database/database.ahk
 #include gui/gui.ahk
-#Include tray/tray.ahk
 
 ; Display error message
 Error(string) {
@@ -29,4 +28,23 @@ IniRead(section, key, default := "", file := "settings.ini") {
 		Error("An error occured while loading settings.ini. Unable to read the value of key '" key "' in section '" section "'")
 	}
 	Return, value
+}
+
+; Exit
+Exit() {
+	exitApp
+}
+
+; Restart
+Restart() {
+	reload
+}
+
+; Scan directories and build database
+Rescan(){
+	global DatabaseFile
+	Suspend, On
+	DatabaseCreate(DatabaseFile)
+	Database := DatabaseLoad(DatabaseFile)
+	Suspend, Off
 }

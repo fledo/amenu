@@ -3,7 +3,7 @@
 */
 #Include settings/functions.ahk
 #Include database/functions.ahk
-#include gui/functions.ahk
+#include gui/gui.ahk
 #Include tray/functions.ahk
 
 ; Display error and exit

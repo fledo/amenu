@@ -1,25 +1,28 @@
-; Scan folders och populate database with full paths to exe files
-DatabaseCreate(DatabaseFile) {
-	FileDelete, %DatabaseFile%
-	IniRead, sections, settings.ini
-	sections := StrSplit(sections, "`n")
-	for key, section in sections {
-		if (key < 6) 
-			continue ; Don't index settings sections
-		IniRead, path, settings.ini, %section%, path
-		IniRead, recursive, settings.ini, %section%, recursive
-		if InStr(FileExist(path), "D") {
-			Loop, %path%\*.exe, , %recursive%
+/*
+	Create new database of executables. Get paths from the extra
+	[sections] in the settings file. Use existing GUI elements to
+	show progress.
+		file
+			File to store data
+*/
+DatabaseCreate(file) {
+	sections := SubStr(IniRead(), 23) ; Strip [interface], [hotkey], [misc]
+	loop, parse, sections, `n
+	{
+		path := IniRead(A_LoopField, "path")
+		recursive := IniRead(A_LoopField, "recursive")
+		if DirExist(path) {
+			Loop, % path "\*.exe", , % recursive
 			{
-				database := database . A_LoopFileFullPath "`n"
-				file.Write(A_LoopFileFullPath "`r`n")
+				database .= A_LoopFileFullPath "`n"
 			}
 		}
 	}
-	Sort, database, \ CL U
-	FileAppend, %database%, %DatabaseFile% 	
+	Sort, database, \ CL U ; Sort by filename
+	FileDelete % file
+	FileAppend, % database, % file
+	GuiHide()
 }
-
 
 ; Build and return array of objects with name and path to executable files.
 DatabaseLoad(DatabaseFile) {

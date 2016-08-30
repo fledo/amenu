@@ -14,7 +14,7 @@ Error(string) {
 /*
 	Return value from ini file
 		section
-			Section of ini file
+			Section of ini file, set to ALL to return section names in a fil
 		key
 			Key of section
 		default
@@ -22,12 +22,15 @@ Error(string) {
 		File
 			File to read
 */
-IniRead(section, key, default := "", file := "settings.ini") {
-	IniRead, value, %file%, %section%, %key%, %default%
-	if(value="ERROR") {
-		Error("An error occured while loading settings.ini. Unable to read the value of key '" key "' in section '" section "'")
+IniRead(section := "", key := "", default := "", file := "settings.ini") {
+	IniRead, value, % file, % section, % key, % default
+	if(value == "ERROR" and section == "ALL") {
+		Error("An error occured while reading section names from " file)
 	}
-	Return, value
+	else if (value == "ERROR") {
+		Error("An error occured while reading " file ", section " section ", key " key)
+	}
+	Return value
 }
 
 ; Exit
@@ -47,4 +50,12 @@ Rescan(){
 	DatabaseCreate(DatabaseFile)
 	Database := DatabaseLoad(DatabaseFile)
 	Suspend, Off
+}
+
+; Check if directory exists
+DirExist(path) {
+	if (InStr(FileExist(path), "D"))
+		return true
+	else
+		return false
 }

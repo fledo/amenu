@@ -1,7 +1,7 @@
 /*
 	functions.ahk
 */
-#Include settings/functions.ahk
+#Include settings/settings.ahk
 #Include database/database.ahk
 #include gui/gui.ahk
 #Include tray/functions.ahk

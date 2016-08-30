@@ -1,5 +1,5 @@
 /* 	
-	tray/functions.ahk
+	tray/tray.ahk
 */
 
 ; Create tray menu

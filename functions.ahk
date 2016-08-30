@@ -4,7 +4,7 @@
 #Include settings/settings.ahk
 #Include database/database.ahk
 #include gui/gui.ahk
-#Include tray/functions.ahk
+#Include tray/tray.ahk
 
 ; Display error and exit
 Error(string) {

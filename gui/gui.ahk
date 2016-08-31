@@ -18,7 +18,7 @@ GuiCreate() {
 		Menu, Tray, add, amenu v%Version%, Exit
 		Menu, Tray, disable, amenu v%Version%
 		Menu, Tray, add, Restart, Restart
-		Menu, Tray, add, Rescan, Rescan
+		Menu, Tray, add, Scan, DatabaseScan
 		Menu, Tray, add, Settings, SettingsOpen
 		Menu, Tray, add, Exit, Exit
 		menu, Tray, Icon

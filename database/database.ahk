@@ -27,15 +27,30 @@ DatabaseCreate(file) {
 	GuiHide()
 }
 
-; Build and return array of objects with name and path to executable files.
-DatabaseLoad(DatabaseFile) {
+; 
+/*
+	Load database file into array of objects with name and path to executable files.
+		file
+			File where paths to exe files are stored
+*/
+DatabaseLoad(file) {
 	database := Object()
-	if FileExist(DatabaseFile) {
-		Loop, read, %DatabaseFile%
+	if FileExist(file) {
+		Loop, read, % file
 		{
 			SplitPath, A_LoopReadLine , , , , name
 			database.Insert({name:name,path:A_LoopReadLine})
 		}
 		return database
 	}
+}
+
+; Disable input, create new database and load it into memory
+DatabaseScan(){
+	global DatabaseFile
+	Suspend, On
+	Gui, +Disabled
+	DatabaseCreate(DatabaseFile)
+	Database := DatabaseLoad(DatabaseFile)
+	Suspend, Off
 }

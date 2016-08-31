@@ -43,16 +43,6 @@ Restart() {
 	reload
 }
 
-; Scan directories and build database
-Rescan(){
-	global DatabaseFile
-	Suspend, On
-	Gui, +Disabled
-	DatabaseCreate(DatabaseFile)
-	Database := DatabaseLoad(DatabaseFile)
-	Suspend, Off
-}
-
 ; Check if directory exists
 DirExist(path) {
 	if (InStr(FileExist(path), "D"))

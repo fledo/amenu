@@ -48,9 +48,9 @@ DatabaseLoad(file) {
 ; Disable input, create new database and load it into memory
 DatabaseScan(){
 	global DatabaseFile
-	Suspend, On
-	Gui, +Disabled
+	Suspend On
+	Gui +Disabled
 	DatabaseCreate(DatabaseFile)
 	Database := DatabaseLoad(DatabaseFile)
-	Suspend, Off
+	Suspend Off
 }

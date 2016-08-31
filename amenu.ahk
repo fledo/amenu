@@ -17,9 +17,9 @@
 #NoEnv 
 #NoTrayIcon
 #Include functions.ahk
-SetBatchLines, -1
-FileEncoding, UTF-8
-SetWorkingDir, %A_AppData%\amenu
+SetBatchLines -1
+FileEncoding UTF-8
+SetWorkingDir % A_AppData "\amenu"
 
 ; Variables
 Global Version = 0.2
@@ -36,13 +36,13 @@ Database := DatabaseLoad(DatabaseFile)
 GuiCreate()
 
 ; Ready to work, register hotkeys
-Hotkey, %Toggle%, GuiToggle
-Hotkey, IfWinActive, amenu v%Version%
-Hotkey, %Right%, GuiRight
-Hotkey, %Right2%, GuiRight
-Hotkey, %Left%, GuiLeft
-Hotkey, %Left2%, GuiLeft
-Hotkey, %RunSelection%, GuiRun
-Hotkey, %RunPattern%, GuiRun
-Hotkey, %Hide%, GuiHide
+Hotkey, % Toggle, GuiToggle
+Hotkey, IfWinActive, % "amenu v" Version
+Hotkey, % Right, GuiRight
+Hotkey, % Right2, GuiRight
+Hotkey, % Left, GuiLeft
+Hotkey, % Left2, GuiLeft
+Hotkey, % RunSelection, GuiRun
+Hotkey, % RunPattern, GuiRun
+Hotkey, % Hide, GuiHide
 Return

@@ -10,7 +10,7 @@ GuiCreate() {
 	Gui Add, ActiveX, x0 y0 w%Width% h%Height% vWB, Shell.Explorer2  ; 2 removes scroll-bar
 	WB.Navigate(A_AppData . "\amenu\gui.html")
 	while WB.ReadyState != 4
-	Sleep 10
+		Sleep 10
 	Gui, Show, x%X% y%Y% w%Width% h%Height%, amenu v%Version%
 
 	if ShowTrayIcon {
@@ -69,22 +69,22 @@ GuiUpdate(step := 0) {
 	Selected += step
 	for key, object in Match {
 		if (key = Selected) {
-			text := text . "<div class='selected'>" . object.name . "</div>"
+			html := html . "<div class='selected'>" . object.name . "</div>"
 		} else {
-			text := text . "<div class='normal'>" . object.name . "</div>"
+			html := html . "<div class='normal'>" . object.name . "</div>"
 		}
 	}
-	GuiSet("result", text)
+	GuiSet("result", html)
 }
 
 ; Show GUI
 GuiShow() {
-	Gui, Show
+	Gui Show
 }
 
 ; Hide GUI, clear elements
 GuiHide() {
-	Gui, Hide
+	Gui Hide
 	GuiControl, Text, SearchPattern
 	GuiSet("result")
 	GuiSet("search")

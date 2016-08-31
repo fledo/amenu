@@ -3,10 +3,10 @@
 	Convert from ANSI (which git likes) to Unicode (which AHK likes)
 */
 SettingsCreate() {
-	FileCreateDir, %A_AppData%\amenu
+	FileCreateDir %A_AppData%\amenu
 	FileInstall, settings/default.ini, settings.ini, 1
 	FileRead, settings, settings.ini
-	FileDelete, settings.ini
+	FileDelete settings.ini
 	FileAppend, %settings%, settings.ini, UTF-16
 }
 

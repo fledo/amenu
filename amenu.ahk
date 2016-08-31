@@ -26,7 +26,7 @@ Global Version = 0.2
 Global Database
 Global Selected
 Global Match
-Global InputBox
+Global SearchPattern
 
 ; amenu settings
 SettingsLoad()

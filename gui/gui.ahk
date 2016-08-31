@@ -6,7 +6,7 @@ GuiCreate() {
 	if !FileExist("gui.css")
 		FileInstall, gui/gui.css, gui.css, 1
 	Gui, +AlwaysOnTop -Resize -SysMenu -Caption +Owner
-	Gui, Add, Edit, w0 h0 vInputBox gGuiRead ; Triggers GuiRead() on input.
+	Gui, Add, Edit, w0 h0 vSearchPattern gGuiRead ; Triggers GuiRead() on change.
 	Gui Add, ActiveX, x0 y0 w%Width% h%Height% vWB, Shell.Explorer2  ; 2 removes scroll-bar
 	WB.Navigate(A_AppData . "\amenu\gui.html")
 	while WB.ReadyState != 4
@@ -29,7 +29,7 @@ GuiCreate() {
 GuiRun() {
 	global RunPattern
 	if (!Match[Selected] or A_ThisHotkey = RunPattern)
-		GuiControlGet, target,, InputBox
+		GuiControlGet, target,, SearchPattern
 	else
 		target := Match[Selected].path
 	Run, % target, % A_Desktop, UseErrorLevel
@@ -45,12 +45,12 @@ GuiRead() {
 	Match := Object() 
 	matchSecondary := Object()
 	
-	GuiControlGet, InputBox
-	GuiSet("search", InputBox)
-	if !InputBox
+	GuiControlGet SearchPattern
+	GuiSet("search", SearchPattern)
+	if !SearchPattern
 		return
 	for key, file in Database {
-		StringGetPos, pos, % file.name, %InputBox%
+		StringGetPos, pos, % file.name, % SearchPattern
 		if (pos = 0) ; Filename starts with Search string
 			Match.push({name:file.name, path:file.path})
 		else if (pos > 0) ; Filename contains search string
@@ -85,7 +85,7 @@ GuiShow() {
 ; Hide GUI, clear elements
 GuiHide() {
 	Gui, Hide
-	GuiControl, Text, InputBox
+	GuiControl, Text, SearchPattern
 	GuiSet("result")
 	GuiSet("search")
 }

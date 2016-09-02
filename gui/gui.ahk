@@ -78,24 +78,27 @@ GuiRead() {
 			matchSecondary.push({name:file.name, path:file.path})
  	}
 	Match.push(matchSecondary*) ; Add secondary matches to the array of good matches
-	GuiUpdate() ; Update GUI with new content
+	
+	; Render HTML
+	i := 1
+	for key, object in Match {
+		html := html . "<div id='" . i++ . "' class='normal'>" . object.name . "</div>"
+	}
+	GuiSet("result", html)
+	GuiUpdate() ; Change class of first div to selected
 }
 
 /*
 	Updates the result div with entries from the Match array.
 		step
-			Increment/decrement Selection integer. Changes current selection.
+			Increment/decrement Selection integer. Change class of related DIVs.
 */
 GuiUpdate(step := 0) {
+	global WB
 	Selected += step
-	for key, object in Match {
-		if (key = Selected) {
-			html := html . "<div class='selected'>" . object.name . "</div>"
-		} else {
-			html := html . "<div class='normal'>" . object.name . "</div>"
-		}
-	}
-	GuiSet("result", html)
+	WB.Document.getElementById(Selected).className := "selected"
+	WB.Document.getElementById(Selected+1).className := "normal"
+	WB.Document.getElementById(Selected-1).className := "normal"
 }
 
 ; Show GUI

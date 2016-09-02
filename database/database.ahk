@@ -8,6 +8,8 @@
 DatabaseCreate(file) {
 	sections := SubStr(IniRead(), 23) ; Strip [interface], [hotkey], [misc]
 	GuiShow()
+	Suspend On
+	Gui +Disabled
 	loop, parse, sections, `n
 	{
 		GuiSet("search", A_LoopField)
@@ -24,10 +26,11 @@ DatabaseCreate(file) {
 	Sort, database, \ CL U ; Sort by filename
 	FileDelete % file
 	FileAppend, % database, % file
+	Suspend Off
+	Gui -Disabled
 	GuiHide()
 }
-
-; 
+ 
 /*
 	Load database file into array of objects with name and path to executable files.
 		file
@@ -43,14 +46,4 @@ DatabaseLoad(file) {
 		}
 		return database
 	}
-}
-
-; Disable input, create new database and load it into memory
-DatabaseScan(){
-	global DatabaseFile
-	Suspend On
-	Gui +Disabled
-	DatabaseCreate(DatabaseFile)
-	Database := DatabaseLoad(DatabaseFile)
-	Suspend Off
 }

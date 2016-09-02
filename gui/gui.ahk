@@ -15,12 +15,15 @@ GuiCreate() {
 
 	if ShowTrayIcon {
 		Menu, Tray, NoStandard
-		Menu, Tray, add, amenu v%Version%, Exit
+		Menu, Tray, add, amenu v%Version%, GuiTray
 		Menu, Tray, disable, amenu v%Version%
-		Menu, Tray, add, Restart, Restart
-		Menu, Tray, add, Scan, DatabaseScan
-		Menu, Tray, add, Settings, SettingsOpen
-		Menu, Tray, add, Exit, Exit
+		Menu, Tray, add, Restart, GuiTray
+		Menu, Tray, add, Scan, GuiTray
+		Menu, Edit, add, settings.ini, GuiTray
+		Menu, Edit, add, gui.css, GuiTray
+		Menu, Edit, add, gui.html, GuiTray
+		Menu, Tray, add, Edit, :Edit
+		Menu, Tray, add, Exit, GuiTray
 		menu, Tray, Icon
 	}
 }
@@ -37,6 +40,18 @@ GuiRun() {
 		GuiHide()
 }
 
+GuiTray(Choice, Position, menu) {
+	if (Choice == "Restart")
+		Reload
+	else if (Choice = "Exit")
+		ExitApp
+	else if (Choice == "Scan") {
+		global DatabaseFile
+		DatabaseCreate(DatabaseFile)
+		Global Database := DatabaseLoad(DatabaseFile)
+	} else
+		run % menu " " Choice
+}
 
 ; Retreive user input and add matches from Database into arrays.
 GuiRead() {

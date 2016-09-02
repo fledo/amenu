@@ -33,16 +33,6 @@ IniRead(section := "", key := "", default := "", file := "settings.ini") {
 	Return value
 }
 
-; Exit
-Exit() {
-	exitApp
-}
-
-; Restart
-Restart() {
-	reload
-}
-
 ; Check if directory exists
 DirExist(path) {
 	if (InStr(FileExist(path), "D"))

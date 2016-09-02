@@ -1,17 +1,12 @@
 amenu
 =====
 
-amenu is a simple and customizable application launcher very much inspired by the excellent [dmenu](http://tools.suckless.org/dmenu/). It will most likely never even be close to having the same set of features. Consider amenu a Windows alternative to dmenu if you only use the latter to run executable files.
+amenu is a simple and customizable application launcher very much inspired by the excellent [dmenu](http://tools.suckless.org/dmenu/). Consider amenu a Windows alternative to dmenu if you only use the latter to run executable files.
 
 Installation
 ------------
 
-Run the [latest](https://github.com/fledo/amenu/releases/latest) `amenu.exe` or clone the repo and run `amenu.ahk`. This will generate default settings and search the following directories for `.exe` files.
- 
-- `C:\program files` (including subfolders)
-- `C:\program files (x86)` (including subfolders)
--	`C:\windows`
-- `C:\windows\system32`
+Download and run the [latest](https://github.com/fledo/amenu/releases/latest) `amenu.exe` or clone the [repo](https://github.com/fledo/amenu/) and run `amenu.ahk`. The directoires defined in [default.ini](https://github.com/fledo/amenu/blob/master/settings/default.ini) will be scanned for exe files.
  
 Usage
 -----
@@ -21,22 +16,21 @@ Usage
  3. Use `←` `→` or `tab` `shift + tab` to change selection.
  4. Press `enter` to launch the selected program.
 
+Customize
+---------
+
+The following can be configured by editing the `settings.ini` file and restarting amenu:
+
+ - Size and position of the GUI window.
+ - Hotkeys to show and interact with the GUI.
+ - Directories to be scanned for .exe files.
+
+All other GUI settings, such as color, font and similar are all defined in `gui.css` and `gui.html`. Both of these files are available via the tray icon menu and in the folder `%appdata%/amenu`.
+
 Dependencies
 ------------
 
-The [executable](https://github.com/fledo/amenu/releases/latest) `amenu.exe` should be fairly portable, require no elevated permissions and run under most versions of Windows. The script `amenu.ahk` requires version 1.1.20.00+ of [AutoHotkey](https://github.com/Lexikos/AutoHotkey_L/).
-
-Settings
---------
-
-The following can be configured by editing the `%appdata%\amenu\settings.ini` file and restarting amenu:
-
- - Size, position and color of gui.
- - GUI font, including color and size.
- - Delimiter between matches.
- - Hotkeys to show and interact with the GUI.
- - Tray icon visibility.
- - Directories to be scanned for .exe files.
+The [executable](https://github.com/fledo/amenu/releases/latest) should be fairly portable, require no elevated permissions and run under most versions of Windows. A cloned repository requires version 1.1.20.00+ of [AutoHotkey](https://github.com/Lexikos/AutoHotkey_L/).
 
 License
 -------

@@ -1,22 +1,26 @@
 ; Create GUI and tray icon menu.
 GuiCreate() {
 	global
+
+	; install required files
 	if !FileExist("gui.html")
 		FileInstall, gui/gui.html, gui.html, 1
 	if !FileExist("gui.css")
 		FileInstall, gui/gui.css, gui.css, 1
+
+	; Create interface, navigate to HTML and show interface
 	Gui, +AlwaysOnTop -Resize -SysMenu -Caption +Owner
-	Gui, Add, Edit, w0 h0 vSearchPattern gGuiRead ; Triggers GuiRead() on change.
-	Gui Add, ActiveX, x0 y0 w%Width% h%Height% vWB, Shell.Explorer2  ; 2 removes scroll-bar
+	Gui, Add, Edit, % "w0 h0 vSearchPattern gGuiRead"
+	Gui Add, ActiveX, % "vWB x0 y0" Size, Shell.Explorer2  ; 2 removes scroll-bar
 	WB.Navigate(A_AppData . "\amenu\gui.html")
 	while WB.ReadyState != 4
 		Sleep 10
-	Gui, Show, x%X% y%Y% w%Width% h%Height%, amenu v%Version%
+	Gui, Show, % ShowOnStart Position Size, % Title
 
 	if ShowTrayIcon {
 		Menu, Tray, NoStandard
-		Menu, Tray, add, amenu v%Version%, GuiTray
-		Menu, Tray, disable, amenu v%Version%
+		Menu, Tray, add, % Title, GuiTray
+		Menu, Tray, disable, % Title
 		Menu, Tray, add, Restart, GuiTray
 		Menu, Tray, add, Scan, GuiTray
 		Menu, Edit, add, settings.ini, GuiTray
@@ -109,7 +113,7 @@ GuiHide() {
 
 ; Show GUI if it's hidden or have lost focus else hide the GUI
 GuiToggle() {
-	if !WinActive("amenu v" . Version)
+	if !WinActive(Title)
  		GuiShow()
 	else
 		GuiHide()

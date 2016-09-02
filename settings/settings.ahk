@@ -3,28 +3,35 @@
 	Convert from ANSI (which git likes) to Unicode (which AHK likes)
 */
 SettingsCreate() {
-	FileCreateDir %A_AppData%\amenu
+	FileCreateDir % A_AppData "\amenu"
 	FileInstall, settings/default.ini, settings.ini, 1
 	FileRead, settings, settings.ini
 	FileDelete settings.ini
-	FileAppend, %settings%, settings.ini, UTF-16
+	FileAppend, % settings, settings.ini, UTF-16
 }
 
 ; Load all settings except paths from settings.ini
 SettingsLoad() {
 	global
-	if !FileExist("settings.ini") 
-		SettingsCreate()
 	
 	; Interface
 	Width := IniRead("interface", "Width", A_ScreenWidth)
 	Height := IniRead("interface", "Height")
 	X := IniRead("interface", "X")
 	Y := IniRead("interface", "Y")
+	ShowOnStart := IniRead("interface", "ShowOnStart")
+	ShowTrayIcon := IniRead("interface", "ShowTrayIcon")
+
+	; Prepare strings for commands
+	Size := " w" Width " h" Height
+	Position := " x" X " y" Y
+	if (ShowOnStart)
+		ShowOnStart := ""
+	else
+		ShowOnStart := "Hide"
 	
 	; Misc
 	DatabaseFile := IniRead("misc", "DatabaseFile")
-	ShowTrayIcon := IniRead("misc", "ShowTrayIcon")
 
 	; Hotkey
 	Toggle := IniRead("hotkey", "Toggle")

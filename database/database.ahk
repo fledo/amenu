@@ -14,9 +14,9 @@ DatabaseCreate(file) {
 	{
 		GuiSet("search", A_LoopField)
 		path := IniRead(A_LoopField, "path")
-		recursive := IniRead(A_LoopField, "recursive")
+		recurse := IniRead(A_LoopField, "recurse")
 		if DirExist(path) {
-			Loop, % path "\*.exe", , % recursive
+			Loop, % path "\*.exe", , % recurse
 			{
 				database .= A_LoopFileFullPath "`n"
 				GuiSet("result", A_LoopFileFullPath)

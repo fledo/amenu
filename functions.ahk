@@ -7,7 +7,7 @@
 
 ; Display error message
 Error(string) {
-	MsgBox, 48, amenu error, % string ".`n`namenu will now exit."
+	MsgBox, 48, % Title " error", % string ".`n`namenu will now exit."
 	ExitApp
 }
 

@@ -23,12 +23,15 @@ SetWorkingDir % A_AppData "\amenu"
 
 ; Variables
 Global Version = 0.2
+Global Title = "amenu v" Version
 Global Database
 Global Selected
 Global Match
 Global SearchPattern
 
 ; amenu settings
+if !FileExist("settings.ini")
+	SettingsCreate()
 SettingsLoad()
 GuiCreate()
 if !FileExist(DatabaseFile)
@@ -37,7 +40,7 @@ Database := DatabaseLoad(DatabaseFile)
 
 ; Ready to work, register hotkeys
 Hotkey, % Toggle, GuiToggle
-Hotkey, IfWinActive, % "amenu v" Version
+Hotkey, IfWinActive, % Title
 Hotkey, % Right, GuiRight
 Hotkey, % Right2, GuiRight
 Hotkey, % Left, GuiLeft

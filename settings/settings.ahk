@@ -32,7 +32,7 @@ SettingsLoad() {
 	Right2 := IniRead("hotkey", "Right2")
 	Left := IniRead("hotkey", "Left")
 	Left2 := IniRead("hotkey", "Left2")
-	RunSelection := IniRead("hotkey", "RunSelection")
+	RunSelected := IniRead("hotkey", "RunSelected")
 	RunPattern := IniRead("hotkey", "RunPattern")
 	Hide := IniRead("hotkey", "Hide")
 }

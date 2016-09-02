@@ -47,8 +47,10 @@ GuiRead() {
 	
 	GuiControlGet SearchPattern
 	GuiSet("search", SearchPattern)
-	if !SearchPattern
+	if !SearchPattern {
+		GuiSet("result")
 		return
+	}
 	for key, file in Database {
 		StringGetPos, pos, % file.name, % SearchPattern
 		if (pos = 0) ; Filename starts with Search string

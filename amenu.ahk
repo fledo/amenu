@@ -30,10 +30,10 @@ Global SearchPattern
 
 ; amenu settings
 SettingsLoad()
+GuiCreate()
 if !FileExist(DatabaseFile)
 	DatabaseCreate(DatabaseFile)
 Database := DatabaseLoad(DatabaseFile)
-GuiCreate()
 
 ; Ready to work, register hotkeys
 Hotkey, % Toggle, GuiToggle

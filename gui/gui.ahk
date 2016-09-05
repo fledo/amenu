@@ -53,8 +53,11 @@ GuiTray(Choice, Position, menu) {
 		global DatabaseFile
 		DatabaseCreate(DatabaseFile)
 		Global Database := DatabaseLoad(DatabaseFile)
-	} else
-		run % menu " " Choice
+	} else {
+		run % menu " " Choice, , UseErrorLevel
+		if ErrorLevel
+			run % A_WorkingDir
+	}
 }
 
 ; Retreive user input and add matches from Database into arrays.

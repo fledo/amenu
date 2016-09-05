@@ -70,7 +70,7 @@ GuiRead() {
 	GuiControlGet SearchPattern
 	GuiSet("search", SearchPattern)
 	if !SearchPattern {
-		GuiSet("result")
+		GuiSet("results")
 		return
 	}
 	for key, file in Database {
@@ -85,9 +85,9 @@ GuiRead() {
 	; Render HTML
 	i := 1
 	for key, object in Match {
-		html := html . "<div id='" . i++ . "' class='normal'>" . object.name . "</div>"
+		html := html . "<div id='result" . i++ . "' class='normal'>" . object.name . "</div>"
 	}
-	GuiSet("result", html)
+	GuiSet("results", html)
 	GuiUpdate() ; Change class of first div to selected
 }
 
@@ -99,9 +99,9 @@ GuiRead() {
 GuiUpdate(step := 0) {
 	global WB
 	Selected += step
-	WB.Document.getElementById(Selected).className := "selected"
-	WB.Document.getElementById(Selected+1).className := "normal"
-	WB.Document.getElementById(Selected-1).className := "normal"
+	WB.Document.getElementById("result" Selected).className := "selected"
+	WB.Document.getElementById("result" Selected+1).className := "normal"
+	WB.Document.getElementById("result" Selected-1).className := "normal"
 }
 
 ; Show GUI
@@ -113,7 +113,7 @@ GuiShow() {
 GuiHide() {
 	Gui Hide
 	GuiControl, Text, SearchPattern
-	GuiSet("result")
+	GuiSet("results")
 	GuiSet("search")
 }
 

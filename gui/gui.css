@@ -46,7 +46,7 @@ body,div {
 /* 
 	Changes affect the result box
 */
-#result {
+#results {
 	/* Use all available space right of the search box */
 	float: none; 
 }
@@ -66,5 +66,12 @@ body,div {
 	Style for results which are not selected 
 */
 .normal {
+
+}
+
+/*
+	Style for the first result, to style the second result. Copy the section and rename it from #result1 to #result2
+/*
+#result1 {
 
 }

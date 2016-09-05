@@ -19,7 +19,7 @@ DatabaseCreate(file) {
 			Loop, % path "\*.exe", , % recurse
 			{
 				database .= A_LoopFileFullPath "`n"
-				GuiSet("result", A_LoopFileFullPath)
+				GuiSet("results", A_LoopFileFullPath)
 			}
 		}
 	}

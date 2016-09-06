@@ -6,7 +6,7 @@ amenu is a simple and customizable application launcher very much inspired by th
 Installation
 ------------
 
-Download and run the [latest](https://github.com/fledo/amenu/releases/latest) `amenu.exe` or clone the [repo](https://github.com/fledo/amenu/) and run `amenu.ahk`. The directoires defined in [default.ini](https://github.com/fledo/amenu/blob/master/settings/default.ini) will be scanned for exe files.
+Download and run the [amenu.exe](https://github.com/fledo/amenu/releases/latest) or clone the [repo](https://github.com/fledo/amenu/) and run amenu.ahk. The directories defined in [default.ini](https://github.com/fledo/amenu/blob/master/settings/default.ini) will be scanned for exe files.
  
 Usage
 -----
@@ -15,6 +15,12 @@ Usage
  2. Start typing to search for executables.
  3. Use `←` `→` or `tab` `shift + tab` to change selection.
  4. Press `enter` to launch the selected program.
+
+### Example
+
+![cyan-gui](https://raw.githubusercontent.com/fledo/amenu/dev/screenshot/01.png)
+
+The default GUI showing the search string "fi" which matches two files in the database. Filezilla will be started when enter is pressed. Unless the selection is changed or the search pattern is narrowed down further.
 
 Customize
 ---------
@@ -25,7 +31,25 @@ The following can be configured by editing the `settings.ini` file and restartin
  - Hotkeys to show and interact with the GUI.
  - Directories to be scanned for .exe files.
 
-All other GUI settings, such as color, font and similar are all defined in `gui.css` and `gui.html`. Both of these files are available via the tray icon menu and in the folder `%appdata%/amenu`.
+Other element settings, such as color, font, size, position and similar are all defined in `gui.css` and `gui.html`. Both are stored in `%appdata%/amenu` and are available via the tray icon menu. Simple changes requires next to none experience with HTML/CSS, the files are heavily commented.
+
+### Example
+
+Apply the changes below to gui.css to change from color `#28e0e0` (cyan) to `#fb8c00` (orange). Note that this requires two changes. The default font color itself and the background color of the selected result.
+
+![orange-gui](https://raw.githubusercontent.com/fledo/amenu/dev/screenshot/02.png)
+
+```css
+body,div {
+	/* Color of the font */
+	color: #fb8c00;
+}
+
+.selected {
+	/* background color of the selected result */
+	background-color: #fb8c00;
+}
+```
 
 Dependencies
 ------------

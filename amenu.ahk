@@ -19,6 +19,8 @@
 #Include functions.ahk
 SetBatchLines -1
 FileEncoding UTF-8
+if !DirExist(A_AppData "\amenu")
+	FileCreateDir % A_AppData "\amenu"
 SetWorkingDir % A_AppData "\amenu"
 
 ; Variables

@@ -10,7 +10,7 @@ SettingsCreate() {
 	FileAppend, % settings, settings.ini, UTF-16
 }
 
-; Load all settings except paths from settings.ini
+; Load all settings (but not paths to be scanned) from settings.ini
 SettingsLoad() {
 	global
 	
@@ -22,7 +22,7 @@ SettingsLoad() {
 	ShowOnStart := IniRead("interface", "ShowOnStart")
 	ShowTrayIcon := IniRead("interface", "ShowTrayIcon")
 
-	; Prepare strings for commands
+	; Prepare strings to, hopefully, increase readability of gui code
 	Size := " w" Width " h" Height
 	Position := " x" X " y" Y
 	if (ShowOnStart)

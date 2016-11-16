@@ -5,7 +5,7 @@
 #Include database/database.ahk
 #include gui/gui.ahk
 
-; Display error message
+; Display error message and exit
 Error(string) {
 	MsgBox, 48, % Title " error", % string ".`n`namenu will now exit."
 	ExitApp
@@ -14,13 +14,13 @@ Error(string) {
 /*
 	Return value from ini file
 		section
-			Section of ini file, set to ALL to return section names in a fil
+			Section of ini file, set to ALL to return string with section names
 		key
-			Key of section
+			Key to read in specified section
 		default
 			Default value in case of missing/empty key
 		File
-			File to read
+			Path to ini file
 */
 IniRead(section := "", key := "", default := "", file := "settings.ini") {
 	IniRead, value, % file, % section, % key, % default
@@ -33,7 +33,7 @@ IniRead(section := "", key := "", default := "", file := "settings.ini") {
 	Return value
 }
 
-; Check if directory exists
+; Return true if path is an existing directory
 DirExist(path) {
 	if (InStr(FileExist(path), "D"))
 		return true
@@ -41,7 +41,7 @@ DirExist(path) {
 		return false
 }
 
-; Create and set working dir
+; Create path and set it as working dir
 SetWorkingDir(path) {
 	if !DirExist(path)
 		FileCreateDir % path

@@ -32,9 +32,9 @@ DatabaseCreate(file) {
 }
  
 /*
-	Load database file into array of objects with name and path to executable files.
+	Return array of objects with name and path to executable files.
 		file
-			File where paths to exe files are stored
+			Path to text file containing list of executables
 */
 DatabaseLoad(file) {
 	database := Object()

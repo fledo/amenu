@@ -46,6 +46,7 @@ GuiRun() {
 		GuiHide()
 }
 
+; Handle user input from tray menu
 GuiTray(Choice, Position, menu) {
 	if (Choice == "Restart")
 		Reload
@@ -62,7 +63,7 @@ GuiTray(Choice, Position, menu) {
 	}
 }
 
-; Retreive user input and add matches from Database into arrays.
+; Retreive user input and add matches from Database into Match.
 GuiRead() {
 	; Reset selection
 	Selected := 1
@@ -84,19 +85,19 @@ GuiRead() {
  	}
 	Match.push(matchSecondary*) ; Add secondary matches to the array of good matches
 	
-	; Render HTML
+	; Create GUI HTML. Results are numbered and classed as "normal", see gui.html for further info
 	i := 1
 	for key, object in Match {
 		html := html . "<div id='result" . i++ . "' class='normal'>" . object.name . "</div>"
 	}
 	GuiSet("results", html)
-	GuiUpdate() ; Change class of first div to selected
+	GuiUpdate() ; Change class of first div to "selected"
 }
 
 /*
-	Updates the result div with entries from the Match array.
+	Set class of the selected div to "selected". Change surrounding div classes to "normal"
 		step
-			Increment/decrement Selection integer. Change class of related DIVs.
+			Increment/decrement which result in the array of matches that is selected
 */
 GuiUpdate(step := 0) {
 	global WB
@@ -127,7 +128,13 @@ GuiToggle() {
 		GuiHide()
 }
 
-; Change inner html of GUI element
+/*
+	Change inner html of GUI element
+		Id
+			id of element to be changed
+		html
+			New inner html
+*/
 GuiSet(Id, html := "") {
 	global WB
 	WB.Document.getElementById(Id).innerHTML := html

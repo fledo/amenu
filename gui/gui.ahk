@@ -135,9 +135,9 @@ GuiToggle() {
 		html
 			New inner html
 */
-GuiSet(Id, html := "") {
+GuiSet(id, html := "") {
 	global WB
-	WB.Document.getElementById(Id).innerHTML := html
+	WB.Document.getElementById(id).innerHTML := html
 }
 
 ; Move selection right 

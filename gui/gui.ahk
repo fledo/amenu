@@ -10,7 +10,7 @@ GuiCreate() {
 
 	; Create interface, navigate to HTML and show interface
 	Gui, +AlwaysOnTop -Resize -SysMenu -Caption +Owner
-	Gui, Add, Edit, % "w0 h0 vSearchPattern gGuiRead"
+	Gui, Add, Edit, % "w0 h0 vFilter gGuiRead"
 	Gui Add, ActiveX, % "vWB x0 y0" Size, Shell.Explorer2  ; 2 removes scroll-bar
 	WB.Navigate(A_AppData . "\amenu\gui.html")
 	while WB.ReadyState != 4
@@ -38,7 +38,7 @@ GuiCreate() {
 GuiRun() {
 	global RunPattern
 	if (!Match[Selected] or A_ThisHotkey = RunPattern)
-		GuiControlGet, target,, SearchPattern
+		GuiControlGet, target,, Filter
 	else
 		target := Match[Selected].path
 	Run, % target, % A_Desktop, UseErrorLevel
@@ -70,17 +70,17 @@ GuiRead() {
 	Match := Object() 
 	matchSecondary := Object()
 	
-	GuiControlGet SearchPattern
-	GuiSet("search", SearchPattern)
-	if !SearchPattern {
+	GuiControlGet Filter
+	GuiSet("search", Filter)
+	if !Filter {
 		GuiSet("results")
 		return
 	}
 	for key, file in Database {
-		StringGetPos, pos, % file.name, % SearchPattern
-		if (pos = 0) ; Filename starts with Search string
+		StringGetPos, pos, % file.name, % Filter
+		if (pos = 0) ; Filename starts with Filter string
 			Match.push({name:file.name, path:file.path})
-		else if (pos > 0) ; Filename contains search string
+		else if (pos > 0) ; Filename contains Filter string
 			matchSecondary.push({name:file.name, path:file.path})
  	}
 	Match.push(matchSecondary*) ; Add secondary matches to the array of good matches
@@ -115,7 +115,7 @@ GuiShow() {
 ; Hide GUI, clear elements
 GuiHide() {
 	Gui Hide
-	GuiControl, Text, SearchPattern
+	GuiControl, Text, Filter
 	GuiSet("results")
 	GuiSet("search")
 }

@@ -25,10 +25,10 @@ SetWorkingDir(A_AppData "\amenu")
 ; Variables
 Global Version = 0.2
 Global Title = "amenu v" Version
-Global Database			; Array of objects containing name and path of all possible matches
-Global SearchPattern	; String containing the user input used to filter matches
-Global Match			; Objects from the Database which matches the SearchPattern
-Global Selected			; Integer noting which Match the user has selected
+Global Database	; Array of objects containing name and path of all possible matches
+Global Filter	; String containing the user input used to filter matches
+Global Match	; Objects from the Database which matches the Filter
+Global Selected	; Integer noting which Match the user has selected
 
 
 ; amenu settings

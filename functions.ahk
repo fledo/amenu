@@ -40,3 +40,10 @@ DirExist(path) {
 	else
 		return false
 }
+
+; Create and set working dir
+SetWorkingDir(path) {
+	if !DirExist(path)
+		FileCreateDir % path
+	SetWorkingDir % path
+}

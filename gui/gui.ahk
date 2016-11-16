@@ -28,7 +28,9 @@ GuiCreate() {
 		Menu, Edit, add, gui.html, GuiTray
 		Menu, Tray, add, Edit, :Edit
 		Menu, Tray, add, Exit, GuiTray
-		menu, Tray, Icon
+		menu, Tray, Icon ; Show tray menu with amenu icon
+		if FileExist("amenu-icon.ico") ; Check workingdir for custom icon
+			Menu, Tray, Icon, amenu-icon.ico
 	}
 }
 

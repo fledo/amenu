@@ -61,8 +61,8 @@ GuiTray(Choice, Position, menu) {
 		global DatabaseFile
 		DatabaseCreate(DatabaseFile)
 		Global Database := DatabaseLoad(DatabaseFile)
-	} else {
-		run % menu " " Choice, , UseErrorLevel
+	} else if (menu == "Edit") {
+		run % "edit " Choice, , UseErrorLevel
 		if ErrorLevel
 			run % A_WorkingDir
 	}

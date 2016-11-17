@@ -1,6 +1,5 @@
 /* 
-	Changes in this section affect of all parts of the GUI, 
-	To override settings here for for other, edit the other secetions.
+	Changes in the section "body,div" are global. Edits will affect all elements. 
 	Default colors are defined in hex. For help see https://ddg.gg?q=color+picker
 */
 body,div {

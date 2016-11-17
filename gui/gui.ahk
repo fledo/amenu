@@ -34,7 +34,7 @@ GuiCreate() {
 	}
 }
 
-; Run the current search pattern or the current selection
+; Run the current selection
 GuiRun() {
 	if (Match[Selected]) {
 		Run, % Match[Selected].path, % A_Desktop, UseErrorLevel

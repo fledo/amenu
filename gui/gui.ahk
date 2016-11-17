@@ -36,11 +36,16 @@ GuiCreate() {
 
 ; Run the current search pattern or the current selection
 GuiRun() {
-	global RunPattern
-	if (!Match[Selected] or A_ThisHotkey = RunPattern)
-		GuiControlGet, target,, Filter
-	else
-		target := Match[Selected].path
+	if (Match[Selected]) {
+		Run, % Match[Selected].path, % A_Desktop, UseErrorLevel
+		if !ErrorLevel
+			GuiHide()
+	}
+}
+
+; Run the current filter string
+GuiRunF() {
+	GuiControlGet, target,, Filter
 	Run, % target, % A_Desktop, UseErrorLevel
 	if !ErrorLevel
 		GuiHide()

@@ -40,14 +40,5 @@ if !FileExist(DatabaseFile)
 	DatabaseCreate(DatabaseFile)
 Database := DatabaseLoad(DatabaseFile)
 
-; Ready to work, register hotkeys
-Hotkey, % Toggle, GuiToggle
-Hotkey, IfWinActive, % Title ; Only listen to the following hotkeys when the gui is active
-Hotkey, % Right, GuiRight
-Hotkey, % Right2, GuiRight
-Hotkey, % Left, GuiLeft
-Hotkey, % Left2, GuiLeft
-Hotkey, % RunSelected, GuiRun
-Hotkey, % RunPattern, GuiRun
-Hotkey, % Hide, GuiHide
+; Ready to work
 Return

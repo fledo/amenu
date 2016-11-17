@@ -33,13 +33,18 @@ SettingsLoad() {
 	; Misc
 	DatabaseFile := IniRead("misc", "DatabaseFile")
 
-	; Hotkey
-	Toggle := IniRead("hotkey", "Toggle")
-	Right := IniRead("hotkey", "Right")
-	Right2 := IniRead("hotkey", "Right2")
-	Left := IniRead("hotkey", "Left")
-	Left2 := IniRead("hotkey", "Left2")
-	RunSelected := IniRead("hotkey", "RunSelected")
-	RunPattern := IniRead("hotkey", "RunPattern")
-	Hide := IniRead("hotkey", "Hide")
+	; Iterate hotkey section and register all keys
+	IniRead, keys, settings.ini, hotkey
+	keys := StrSplit(keys , ["=","`n"])
+	Loop % keys.Length() {
+		if (mod(A_index,2) == 0)
+			continue
+		if (keys[A_index+1] == "GuiToggle") {
+			Hotkey, IfWinActive ; Register GuiToggle hotkeys as global
+			Hotkey, % keys[A_Index], % keys[A_Index+1]
+		} else {
+			Hotkey, IfWinActive, % Title ; Only listen to the following hotkeys when the gui is active
+			Hotkey, % keys[A_Index], % keys[A_Index+1]
+		}
+	}
 }

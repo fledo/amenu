@@ -27,11 +27,11 @@ Customize
 
 The following can be configured by editing the `settings.ini` file and restarting amenu:
 
- - Size and position of the GUI window.
- - Hotkeys to show and interact with the GUI.
  - Directories to be scanned for .exe files.
+ - Hotkeys to show and interact with the GUI.
+ - Size and position of the GUI window.
 
-Other element settings, such as color, font, size, position and similar are all defined in `gui.css` and `gui.html`. Both are stored in `%appdata%/amenu` and are available via the tray icon menu. Simple changes requires next to none experience with HTML/CSS, the files are heavily commented.
+Settings for GUI elements, such as color, font, size, position and similar are all defined in `gui.css` and `gui.html`. Both are stored in `%appdata%/amenu` and are available via the tray icon menu. Simple changes requires next to none experience with HTML/CSS, the files are heavily commented.
 
 ### Example
 

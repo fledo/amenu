@@ -20,6 +20,7 @@ SettingsLoad() {
 	X := IniRead("interface", "X")
 	Y := IniRead("interface", "Y")
 	ShowOnStart := IniRead("interface", "ShowOnStart")
+	ExitOnHide := IniRead("interface", "ExitOnHide")
 	ShowTrayIcon := IniRead("interface", "ShowTrayIcon")
 
 	; Prepare strings to, hopefully, increase readability of gui code

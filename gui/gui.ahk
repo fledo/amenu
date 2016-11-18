@@ -119,6 +119,9 @@ GuiShow() {
 
 ; Hide GUI, clear elements
 GuiHide() {
+	global ExitOnHide
+	if ExitOnHide
+		ExitApp
 	Gui Hide
 	GuiControl, Text, Filter
 	GuiSet("results")

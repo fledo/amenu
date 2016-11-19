@@ -4,38 +4,47 @@
 */
 SettingsCreate() {
 	FileCreateDir % A_AppData "\amenu"
-	FileInstall, settings/default.ini, settings.ini, 1
-	FileRead, settings, settings.ini
-	FileDelete settings.ini
-	FileAppend, % settings, settings.ini, UTF-16
+	if !FileExist("gui.ini") {
+		FileInstall, settings/gui.ini, gui.ini, 1
+		ConvertFile("gui.ini")
+	}
+	if !FileExist("misc.ini") {
+		FileInstall, settings/misc.ini, misc.ini, 1
+		ConvertFile("misc.ini")
+	}
+	if !FileExist("hotkeys.ini") {
+		FileInstall, settings/hotkeys.ini, hotkeys.ini, 1
+		ConvertFile("hotkeys.ini")
+	}
+	if !FileExist("paths.ini") {
+		FileInstall, settings/paths.ini, paths.ini, 1
+		ConvertFile("paths.ini")
+	}
 }
 
 ; Load all settings (but not paths to be scanned) from settings.ini
 SettingsLoad() {
 	global
-	
-	; Interface
-	Width := IniRead("interface", "Width", A_ScreenWidth)
-	Height := IniRead("interface", "Height")
-	X := IniRead("interface", "X", (A_ScreenWidth/2)-(Width/2))
-	Y := IniRead("interface", "Y", (A_ScreenHeight/2)-(Height/2))
-	ShowOnStart := IniRead("interface", "ShowOnStart")
-	ExitOnHide := IniRead("interface", "ExitOnHide")
-	ShowTrayIcon := IniRead("interface", "ShowTrayIcon")
 
-	; Prepare strings to, hopefully, increase readability of gui code
+	; GUI
+	Width := IniRead("gui.ini", "gui", "Width", A_ScreenWidth)
+	Height := IniRead("gui.ini", "gui", "Height")
+	X := IniRead("gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
+	Y := IniRead("gui.ini", "gui", "Y", (A_ScreenHeight/2)-(Height/2))
 	Size := " w" Width " h" Height
 	Position := " x" X " y" Y
-	if (ShowOnStart)
+
+	; Misc
+	DatabaseFile := IniRead("misc.ini", "misc", "DatabaseFile")
+	ExitOnHide := IniRead("misc.ini", "misc", "ExitOnHide")
+	ShowTrayIcon := IniRead("misc.ini", "misc", "ShowTrayIcon")
+	if (IniRead("misc.ini", "misc", "ShowOnStart"))
 		ShowOnStart := ""
 	else
 		ShowOnStart := "Hide"
-	
-	; Misc
-	DatabaseFile := IniRead("misc", "DatabaseFile")
 
 	; Iterate hotkey section and register all keys
-	IniRead, keys, settings.ini, hotkey
+	IniRead, keys, hotkeys.ini, hotkey
 	keys := StrSplit(keys , ["=","`n"])
 	Loop % keys.Length() {
 		if (mod(A_index,2) == 0)

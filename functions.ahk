@@ -13,16 +13,16 @@ Error(string) {
 
 /*
 	Return value from ini file
+		file
+			Path to ini file
 		section
 			Section of ini file, set to ALL to return string with section names
 		key
 			Key to read in specified section
 		default
 			Default value in case of missing/empty key
-		File
-			Path to ini file
 */
-IniRead(section := "", key := "", default := "", file := "settings.ini") {
+IniRead(file, section := "", key := "", default := "") {
 	IniRead, value, % file, % section, % key, % default
 	if(value == "ERROR" and section == "ALL") {
 		Error("An error occured while reading section names from " file)
@@ -70,4 +70,21 @@ Hotkey(key, target) {
 			errorstring := "The prefix in '" . key . "' is not allowed"
 		Error("Hotkey configuration error! Setting """ . key . " = " . target . """ is invalid. " . errorstring . " (code " . ErrorLevel . ")")
 	}
+}
+
+/*
+	Convert file to new encoding
+		key
+			File to change
+		key
+			File to change
+		target
+			Encoding to change to
+*/
+ConvertFile(source, target := "", encoding := "UTF-16") {
+	if !target
+		target := source
+	FileRead, content, % source
+	FileDelete, % target
+	FileAppend, % content, % target, % encoding
 }

@@ -6,7 +6,7 @@
 			File to store data
 */
 DatabaseCreate(file) {
-	sections := SubStr(IniRead(), 23) ; Strip [interface], [hotkey], [misc]
+	sections := IniRead("paths.ini", "all")
 	GuiShow()
 	Suspend On
 	Gui +Disabled

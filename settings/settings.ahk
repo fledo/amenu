@@ -17,8 +17,8 @@ SettingsLoad() {
 	; Interface
 	Width := IniRead("interface", "Width", A_ScreenWidth)
 	Height := IniRead("interface", "Height")
-	X := IniRead("interface", "X")
-	Y := IniRead("interface", "Y")
+	X := IniRead("interface", "X", (A_ScreenWidth/2)-(Width/2))
+	Y := IniRead("interface", "Y", (A_ScreenHeight/2)-(Height/2))
 	ShowOnStart := IniRead("interface", "ShowOnStart")
 	ExitOnHide := IniRead("interface", "ExitOnHide")
 	ShowTrayIcon := IniRead("interface", "ShowTrayIcon")

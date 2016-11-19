@@ -1,0 +1,10 @@
+/*
+	Only a few values needs to be set, since this theme loads the css file from the defeault theme.
+*/
+body,div {
+	color: #f90c00;
+}
+
+.selected {
+	background-color: #f90c00;
+}

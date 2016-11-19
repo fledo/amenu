@@ -14,7 +14,6 @@
 */
 
 ; AHK Settings
-#Persistent
 #SingleInstance force
 #NoEnv 
 #NoTrayIcon
@@ -31,8 +30,7 @@ Global Filter	; String containing the user input used to filter matches
 Global Match	; Objects from the Database which matches the Filter
 Global Selected	; Integer noting which Match the user has selected
 
-
-; amenu settings
+; Initialize
 Install()
 SettingsLoad()
 GuiCreate()

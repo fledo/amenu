@@ -13,6 +13,17 @@ Install() {
 		ConvertFile("theme\default\gui.ini")
 	}
 
+	; Default-orange theme
+	FileCreateDir theme\default-orange
+	if !FileExist("theme\default-orange\gui.html")
+		FileInstall, theme\default-orange\gui.html, theme\default-orange\gui.html, 1
+	if !FileExist("theme\default-orange\gui.css")
+		FileInstall, theme\default-orange\gui.css, theme\default-orange\gui.css, 1
+	if !FileExist("theme\default-orange\gui.ini") {
+		FileInstall, theme\default-orange\gui.ini, theme\default-orange\gui.ini, 1
+		ConvertFile("theme\default-orange\gui.ini")
+	}
+
 	; Default settings, must be converted to Unicode
 	if !FileExist("misc.ini") {
 		FileInstall, settings/misc.ini, misc.ini, 1

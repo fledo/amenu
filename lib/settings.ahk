@@ -66,7 +66,7 @@ SettingsLoad() {
 
 	; GUI
 	Width := IniRead("theme\" . Theme . "\gui.ini", "gui", "Width", A_ScreenWidth)
-	Height := IniRead("theme\" . Theme . "\gui.ini", "gui", "Height")
+	Height := IniRead("theme\" . Theme . "\gui.ini", "gui", "Height", A_ScreenHeight)
 	X := IniRead("theme\" . Theme . "\gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
 	Y := IniRead("theme\" . Theme . "\gui.ini", "gui", "Y", (A_ScreenHeight/2)-(Height/2))
 	Size := " w" Width " h" Height

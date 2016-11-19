@@ -24,7 +24,7 @@ Error(string) {
 */
 IniRead(file, section := "", key := "", default := "") {
 	IniRead, value, % file, % section, % key, % default
-	if(value == "ERROR" and section == "ALL") {
+	if(value == "ERROR" and ! section) {
 		Error("An error occured while reading section names from " file)
 	}
 	else if (value == "ERROR") {

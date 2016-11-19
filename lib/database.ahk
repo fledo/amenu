@@ -6,15 +6,15 @@
 			File to store data
 */
 DatabaseCreate(file) {
-	sections := IniRead("paths.ini", "all")
+	sections := IniRead("paths.ini")
 	GuiShow()
 	Suspend On
 	Gui +Disabled
 	loop, parse, sections, `n
 	{
 		GuiSet("search", A_LoopField)
-		path := IniRead(A_LoopField, "path")
-		recurse := IniRead(A_LoopField, "recurse")
+		path := IniRead("paths.ini", A_LoopField, "path")
+		recurse := IniRead("paths.ini", A_LoopField, "recurse")
 		if DirExist(path) {
 			Loop, % path "\*.exe", , % recurse
 			{

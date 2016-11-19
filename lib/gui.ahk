@@ -6,21 +6,38 @@ GuiCreate() {
 	Gui, +AlwaysOnTop -Resize -SysMenu -Caption +Owner
 	Gui, Add, Edit, % "w0 h0 vFilter gGuiRead"
 	Gui Add, ActiveX, % "vWB x0 y0" Size, Shell.Explorer2  ; 2 removes scroll-bar
-	WB.Navigate(A_AppData . "\amenu\" . Theme "gui.html")
+	WB.Navigate(A_AppData . "\amenu\theme\" . Theme . "\gui.html")
 	while WB.ReadyState != 4
 		Sleep 10
 	Gui, Show, % ShowOnStart Position Size, % Title
 
 	if ShowTrayIcon {
+		; Root
 		Menu, Tray, NoStandard
 		Menu, Tray, add, % Title, GuiTray
 		Menu, Tray, disable, % Title
 		Menu, Tray, add, Restart, GuiTray
 		Menu, Tray, add, Scan, GuiTray
+
+		; Settings
 		Menu, Settings, add, Misc, GuiTray
 		Menu, Settings, add, Paths, GuiTray
 		Menu, Settings, add, Hotkeys, GuiTray
 		Menu, Tray, add, Settings, :Settings
+
+		; Themes
+		Menu, Theme, add, Directory..., GuiTray
+		Loop, Files, theme\*, D 
+		{
+			Menu, Theme, add, % A_LoopFileName, GuiTray,, +Radio
+			if (A_LoopFileName == Theme) {
+				Menu, Theme, Check, % A_LoopFileName
+				Menu, Theme, Disable, % A_LoopFileName
+			}
+		}
+		Menu, Tray, add, Theme, :Theme
+
+		; Root
 		Menu, Tray, add, Exit, GuiTray
 		menu, Tray, Icon ; Show tray menu with amenu icon
 		if FileExist("amenu-icon.ico") ; Check workingdir for custom icon
@@ -56,9 +73,15 @@ GuiTray(Choice, Position, menu) {
 		DatabaseCreate(DatabaseFile)
 		Global Database := DatabaseLoad(DatabaseFile)
 	} else if (menu == "Settings") {
-		run % "edit " Choice ".ini", , UseErrorLevel
-		if ErrorLevel
-			run % A_WorkingDir
+		run % "edit " Choice ".ini"
+	} else if (menu == "Theme") {
+		if (Choice == "Themes directory...") {
+			run "theme"
+		} else {
+			IniWrite, % Choice, misc.ini, misc, theme
+			Reload
+		}
+	}
 }
 
 ; Retreive user input and add matches from Database into Match.

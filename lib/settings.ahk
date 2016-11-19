@@ -33,7 +33,7 @@ SettingsLoad() {
 	global
 
 	; Misc
-	Theme := "theme\" . IniRead("misc.ini", "misc", "Theme") . "\"
+	Theme := IniRead("misc.ini", "misc", "Theme")
 	DatabaseFile := IniRead("misc.ini", "misc", "DatabaseFile")
 	ExitOnHide := IniRead("misc.ini", "misc", "ExitOnHide")
 	ShowTrayIcon := IniRead("misc.ini", "misc", "ShowTrayIcon")
@@ -43,10 +43,10 @@ SettingsLoad() {
 		ShowOnStart := "Hide"
 
 	; GUI
-	Width := IniRead(Theme . "gui.ini", "gui", "Width", A_ScreenWidth)
-	Height := IniRead(Theme . "gui.ini", "gui", "Height")
-	X := IniRead(Theme . "gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
-	Y := IniRead(Theme . "gui.ini", "gui", "Y", (A_ScreenHeight/2)-(Height/2))
+	Width := IniRead("theme\" . Theme . "\gui.ini", "gui", "Width", A_ScreenWidth)
+	Height := IniRead("theme\" . Theme . "\gui.ini", "gui", "Height")
+	X := IniRead("theme\" . Theme . "\gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
+	Y := IniRead("theme\" . Theme . "\gui.ini", "gui", "Y", (A_ScreenHeight/2)-(Height/2))
 	Size := " w" Width " h" Height
 	Position := " x" X " y" Y
 

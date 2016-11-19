@@ -47,3 +47,27 @@ SetWorkingDir(path) {
 		FileCreateDir % path
 	SetWorkingDir % path
 }
+
+/*
+	Register new hotkey. Only hotkeys with GuiToggle as target are global.
+		key
+			Combination of keys to be pressed
+		target
+			Function triggered by hotkey
+*/
+Hotkey(key, target) {
+	if (target == "GuiToggle")
+		Hotkey, IfWinActive
+	else
+		Hotkey, IfWinActive, % Title
+	Hotkey, % key, % target, UseErrorLevel
+	if ErrorLevel {
+		if (ErrorLevel == 1)
+			errorstring := "The target '" . target . "' does not exist. Check settings.ini for a list of valid target functions"
+		else if ErrorLevel in 2,4
+			errorstring := "The defined key combination '" . key . "' is not recognized or is not supported"
+		else if (ErrorLevel == 3)
+			errorstring := "The prefix in '" . key . "' is not allowed"
+		Error("Hotkey configuration error! Setting """ . key . " = " . target . """ is invalid. " . errorstring . " (code " . ErrorLevel . ")")
+	}
+}

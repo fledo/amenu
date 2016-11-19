@@ -39,13 +39,6 @@ SettingsLoad() {
 	keys := StrSplit(keys , ["=","`n"])
 	Loop % keys.Length() {
 		if (mod(A_index,2) == 0)
-			continue
-		if (keys[A_index+1] == "GuiToggle") {
-			Hotkey, IfWinActive ; Register GuiToggle hotkeys as global
-			Hotkey, % keys[A_Index], % keys[A_Index+1]
-		} else {
-			Hotkey, IfWinActive, % Title ; Only listen to the following hotkeys when the gui is active
-			Hotkey, % keys[A_Index], % keys[A_Index+1]
-		}
+			Hotkey(keys[A_Index-1], keys[A_index])
 	}
 }

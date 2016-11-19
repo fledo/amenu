@@ -63,22 +63,22 @@ GuiRunF() {
 }
 
 ; Handle user input from tray menu
-GuiTray(Choice, Position, menu) {
-	if (Choice == "Restart")
+GuiTray(choice, position, menu) {
+	if (choice == "Restart")
 		Reload
-	else if (Choice = "Exit")
+	else if (choice = "Exit")
 		ExitApp
-	else if (Choice == "Scan") {
+	else if (choice == "Scan") {
 		global DatabaseFile
 		DatabaseCreate(DatabaseFile)
 		Global Database := DatabaseLoad(DatabaseFile)
 	} else if (menu == "Settings") {
-		run % "edit " Choice ".ini"
+		run % "edit " choice ".ini"
 	} else if (menu == "Theme") {
-		if (Choice == "Themes directory...") {
+		if (choice == "Directory...") {
 			run "theme"
 		} else {
-			IniWrite, % Choice, misc.ini, misc, theme
+			IniWrite, % choice, misc.ini, misc, theme
 			Reload
 		}
 	}

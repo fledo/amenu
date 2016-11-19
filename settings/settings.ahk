@@ -1,13 +1,19 @@
 /*
-	Install default.ini to %appdata&\amenu\settings.ini
-	Convert from ANSI (which git likes) to Unicode (which AHK likes)
+	Install default theme and default settings
 */
-SettingsCreate() {
-	FileCreateDir % A_AppData "\amenu"
-	if !FileExist("gui.ini") {
-		FileInstall, settings/gui.ini, gui.ini, 1
-		ConvertFile("gui.ini")
+Install() {
+	; Default theme
+	FileCreateDir theme\default
+	if !FileExist("theme\default\gui.html")
+		FileInstall, theme\default\gui.html, theme\default\gui.html, 1
+	if !FileExist("theme\default\gui.css")
+		FileInstall, theme\default\gui.css, theme\default\gui.css, 1
+	if !FileExist("theme\default\gui.ini") {
+		FileInstall, theme\default\gui.ini, theme\default\gui.ini, 1
+		ConvertFile("theme\default\gui.ini")
 	}
+
+	; Default settings, must be converted to Unicode
 	if !FileExist("misc.ini") {
 		FileInstall, settings/misc.ini, misc.ini, 1
 		ConvertFile("misc.ini")
@@ -26,15 +32,8 @@ SettingsCreate() {
 SettingsLoad() {
 	global
 
-	; GUI
-	Width := IniRead("gui.ini", "gui", "Width", A_ScreenWidth)
-	Height := IniRead("gui.ini", "gui", "Height")
-	X := IniRead("gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
-	Y := IniRead("gui.ini", "gui", "Y", (A_ScreenHeight/2)-(Height/2))
-	Size := " w" Width " h" Height
-	Position := " x" X " y" Y
-
 	; Misc
+	Theme := "theme\" . IniRead("misc.ini", "misc", "Theme") . "\"
 	DatabaseFile := IniRead("misc.ini", "misc", "DatabaseFile")
 	ExitOnHide := IniRead("misc.ini", "misc", "ExitOnHide")
 	ShowTrayIcon := IniRead("misc.ini", "misc", "ShowTrayIcon")
@@ -42,6 +41,14 @@ SettingsLoad() {
 		ShowOnStart := ""
 	else
 		ShowOnStart := "Hide"
+
+	; GUI
+	Width := IniRead(Theme . "gui.ini", "gui", "Width", A_ScreenWidth)
+	Height := IniRead(Theme . "gui.ini", "gui", "Height")
+	X := IniRead(Theme . "gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
+	Y := IniRead(Theme . "gui.ini", "gui", "Y", (A_ScreenHeight/2)-(Height/2))
+	Size := " w" Width " h" Height
+	Position := " x" X " y" Y
 
 	; Iterate hotkey section and register all keys
 	IniRead, keys, hotkeys.ini, hotkey

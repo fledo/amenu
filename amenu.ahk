@@ -33,7 +33,7 @@ Global Selected	; Integer noting which Match the user has selected
 
 
 ; amenu settings
-SettingsCreate()
+Install()
 SettingsLoad()
 GuiCreate()
 if !FileExist(DatabaseFile)

@@ -18,7 +18,7 @@ Usage
 
 ### Example
 
-![cyan-gui](https://raw.githubusercontent.com/fledo/amenu/dev/screenshot/01.png)
+![cyan-gui](https://raw.githubusercontent.com/fledo/amenu/dev/image/screenshot-default-settings.png)
 
 The default GUI showing the search string "fi" which matches two files in the database. Filezilla will be started when enter is pressed. Unless the selection is changed or the search pattern is narrowed down further.
 
@@ -37,7 +37,7 @@ Settings for GUI elements, such as color, font, size, position and similar are a
 
 Apply the changes below to gui.css to change from color `#28e0e0` (cyan) to `#fb8c00` (orange). Note that this requires two changes. The default font color itself and the background color of the selected result.
 
-![orange-gui](https://raw.githubusercontent.com/fledo/amenu/dev/screenshot/02.png)
+![orange-gui](https://raw.githubusercontent.com/fledo/amenu/dev/image/screenshot-custom-settings.png)
 
 ```css
 body,div {

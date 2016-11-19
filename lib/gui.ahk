@@ -17,10 +17,10 @@ GuiCreate() {
 		Menu, Tray, disable, % Title
 		Menu, Tray, add, Restart, GuiTray
 		Menu, Tray, add, Scan, GuiTray
-		Menu, Edit, add, settings.ini, GuiTray
-		Menu, Edit, add, gui.css, GuiTray
-		Menu, Edit, add, gui.html, GuiTray
-		Menu, Tray, add, Edit, :Edit
+		Menu, Settings, add, Misc, GuiTray
+		Menu, Settings, add, Paths, GuiTray
+		Menu, Settings, add, Hotkeys, GuiTray
+		Menu, Tray, add, Settings, :Settings
 		Menu, Tray, add, Exit, GuiTray
 		menu, Tray, Icon ; Show tray menu with amenu icon
 		if FileExist("amenu-icon.ico") ; Check workingdir for custom icon
@@ -55,11 +55,10 @@ GuiTray(Choice, Position, menu) {
 		global DatabaseFile
 		DatabaseCreate(DatabaseFile)
 		Global Database := DatabaseLoad(DatabaseFile)
-	} else if (menu == "Edit") {
-		run % "edit " Choice, , UseErrorLevel
+	} else if (menu == "Settings") {
+		run % "edit " Choice ".ini", , UseErrorLevel
 		if ErrorLevel
 			run % A_WorkingDir
-	}
 }
 
 ; Retreive user input and add matches from Database into Match.

@@ -1,9 +1,9 @@
 /*
 	functions.ahk
 */
-#Include settings/settings.ahk
-#Include database/database.ahk
-#include gui/gui.ahk
+#Include <settings>
+#Include <database>
+#include <gui>
 
 ; Display error message and exit
 Error(string) {

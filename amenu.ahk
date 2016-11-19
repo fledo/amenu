@@ -17,7 +17,7 @@
 #SingleInstance force
 #NoEnv 
 #NoTrayIcon
-#Include functions.ahk
+#Include <functions>
 SetBatchLines -1
 FileEncoding UTF-8
 SetWorkingDir(A_AppData "\amenu")

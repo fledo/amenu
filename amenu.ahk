@@ -6,7 +6,8 @@
 			
 		Acknowledgements:
 			 - amenu is Very much inspired by [dmenu](http://tools.suckless.org/dmenu/).
-			 - amenu is written in [AHK](http://www.ahkscript.org/) 
+			 - amenu is written in [AHK](http://www.ahkscript.org/).
+			 - amenu logo design by [Sara Larsson](http://saralarsson.com)
 			
 		Author:
 			Fred Uggla <fred.uggla@gmail.com>

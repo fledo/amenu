@@ -6,7 +6,7 @@ GuiCreate() {
 	Gui, +AlwaysOnTop -Resize -SysMenu -Caption +Owner
 	Gui, Add, Edit, % "w0 h0 vFilter gGuiRead"
 	Gui Add, ActiveX, % "vWB x0 y0" Size, Shell.Explorer2  ; 2 removes scroll-bar
-	WB.Navigate(A_AppData . "\amenu\theme\" . Theme . "\gui.html")
+	WB.Navigate(ThemeDir . "gui.html")
 	while WB.ReadyState != 4
 		Sleep 10
 	Gui, Show, % ShowOnStart Position Size, % Title

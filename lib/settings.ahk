@@ -50,11 +50,11 @@ Install() {
 	}
 }
 
-; Load all settings (but not paths to be scanned) from settings.ini
+; Load all settings (but not paths to be scanned)
 SettingsLoad() {
 	global
 
-	; Misc
+	; misc.ini
 	Theme := IniRead("misc.ini", "misc", "Theme")
 	ThemeDir := A_WorkingDir . "\theme\" . Theme . "\"
 	DatabaseFile := IniRead("misc.ini", "misc", "DatabaseFile")
@@ -65,7 +65,7 @@ SettingsLoad() {
 	else
 		ShowOnStart := "Hide"
 
-	; GUI
+	; gui.ini
 	Width := IniRead(ThemeDir . "gui.ini", "gui", "Width", A_ScreenWidth)
 	Height := IniRead(ThemeDir . "gui.ini", "gui", "Height", A_ScreenHeight)
 	X := IniRead(ThemeDir . "gui.ini", "gui", "X", (A_ScreenWidth/2)-(Width/2))
@@ -73,7 +73,7 @@ SettingsLoad() {
 	Size := " w" Width " h" Height
 	Position := " x" X " y" Y
 
-	; Iterate hotkey section and register all keys
+	; Iterate over hotkeys.ini and register all keys
 	IniRead, keys, hotkeys.ini, hotkey
 	keys := StrSplit(keys , ["=","`n"])
 	Loop % keys.Length() {

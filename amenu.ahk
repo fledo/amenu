@@ -23,7 +23,7 @@ FileEncoding UTF-8
 SetWorkingDir(A_AppData "\amenu")
 
 ; Variables
-Global Version = 0.2
+Global Version = 0.3
 Global Title = "amenu v" Version
 Global Database	; Array of objects containing name and path of all possible matches
 Global Filter	; String containing the user input used to filter matches

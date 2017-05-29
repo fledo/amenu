@@ -2,20 +2,20 @@
 	amenu.ahk
 		Description:
 			Search for and run executable files found in user defined directories.
-			<github.com/fledo/amenu>
-			
+			<github.com/owlnical/amenu>
+
 		Acknowledgements:
 			 - amenu is Very much inspired by [dmenu](http://tools.suckless.org/dmenu/).
 			 - amenu is written in [AHK](http://www.ahkscript.org/).
 			 - amenu logo design by [Sara Larsson](http://saralarsson.com)
-			
+
 		Author:
 			Fred Uggla <fred.uggla@gmail.com>
 */
 
 ; AHK Settings
 #SingleInstance force
-#NoEnv 
+#NoEnv
 #NoTrayIcon
 #Include <functions>
 SetBatchLines -1

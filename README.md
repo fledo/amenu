@@ -6,8 +6,8 @@ amenu is a simple and customizable application launcher very much inspired by th
 Installation
 ------------
 
-Download and run the [amenu.exe](https://github.com/fledo/amenu/releases/latest) or clone the [repo](https://github.com/fledo/amenu/) and run amenu.ahk. The [default paths](settings/paths.ini) will be scanned for exe files.
- 
+Download and run the [amenu.exe](https://github.com/owlnical/amenu/releases/latest) or clone the [repo](https://github.com/owlnical/amenu/) and run amenu.ahk. The [default paths](settings/paths.ini) will be scanned for exe files.
+
 Usage
 -----
 
@@ -29,7 +29,7 @@ There are three separate files for settings available via the tray menu:
 
  - `paths.ini` - directories to be scanned for .exe files.
  - `hotkeys.ini` - key combinations to show and interact with the GUI.
- - `misc.ini`  - miscellaneous settings. 
+ - `misc.ini`  - miscellaneous settings.
 
 ### Theme
 
@@ -54,7 +54,7 @@ To create your own theme from scratch you might need some experience in HTML and
 Dependencies
 ------------
 
-The [executable](https://github.com/fledo/amenu/releases/latest) should be fairly portable, require no elevated permissions and run under most versions of Windows. A cloned repository requires version 1.1.20.00+ of [AutoHotkey](https://github.com/Lexikos/AutoHotkey_L/).
+The [executable](https://github.com/owlnical/amenu/releases/latest) should be fairly portable, require no elevated permissions and run under most versions of Windows. A cloned repository requires version 1.1.20.00+ of [AutoHotkey](https://github.com/Lexikos/AutoHotkey_L/).
 
 License
 -------

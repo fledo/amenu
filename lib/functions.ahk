@@ -5,7 +5,11 @@
 #Include <database>
 #include <gui>
 
-; Display error message and exit
+/*
+	Display error message and exit
+		string
+			Error message to display
+*/
 Error(string) {
 	MsgBox, 48, % Title " error", % string ".`n`namenu will now exit."
 	ExitApp
@@ -33,7 +37,11 @@ IniRead(file, section := "", key := "", default := "") {
 	Return value
 }
 
-; Return true if path is an existing directory
+/*
+	Return true if path is an existing directory
+		path
+			Path to check
+*/
 DirExist(path) {
 	if (InStr(FileExist(path), "D"))
 		return true
@@ -41,7 +49,11 @@ DirExist(path) {
 		return false
 }
 
-; Create path and set it as working dir
+/*
+	Create path and set it as working dir
+		path
+			Path to directory
+*/
 SetWorkingDir(path) {
 	if !DirExist(path)
 		FileCreateDir % path

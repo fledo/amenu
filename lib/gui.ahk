@@ -1,4 +1,6 @@
-; Create GUI and tray icon menu.
+/*
+	Create GUI and tray icon menu.
+*/
 GuiCreate() {
 	global
 
@@ -45,7 +47,9 @@ GuiCreate() {
 	}
 }
 
-; Run the current selection
+/*
+	Run the current selection
+*/
 GuiRun() {
 	if (Match[Selected]) {
 		Run, % Match[Selected].path, % A_Desktop, UseErrorLevel
@@ -54,7 +58,9 @@ GuiRun() {
 	}
 }
 
-; Run the current filter string
+/*
+	Run the current filter string
+*/
 GuiRunF() {
 	GuiControlGet, target,, Filter
 	Run, % target, % A_Desktop, UseErrorLevel
@@ -62,7 +68,9 @@ GuiRunF() {
 		GuiHide()
 }
 
-; Handle user input from tray menu
+/*
+	Handle user input from tray menu
+*/
 GuiTray(choice, position, menu) {
 	if (choice == "Restart")
 		Reload
@@ -84,7 +92,9 @@ GuiTray(choice, position, menu) {
 	}
 }
 
-; Retreive user input and add matches from Database into Match.
+/*
+	Retreive user input and add matches from Database into Match.
+*/
 GuiRead() {
 	; Reset selection
 	Selected := 1
@@ -128,12 +138,16 @@ GuiUpdate(step := 0) {
 	WB.Document.getElementById("result" Selected-1).className := "normal"
 }
 
-; Show GUI
+/*
+	Show GUI
+*/
 GuiShow() {
 	Gui Show
 }
 
-; Hide GUI, clear elements
+/*
+	Hide GUI, clear elements
+*/
 GuiHide() {
 	global ExitOnHide
 	if ExitOnHide
@@ -144,7 +158,9 @@ GuiHide() {
 	GuiSet("search")
 }
 
-; Show GUI if it's hidden or have lost focus else hide the GUI
+/*
+	Show GUI if it's hidden or have lost focus else hide the GUI
+*/
 GuiToggle() {
 	if !WinActive(Title)
  		GuiShow()
@@ -164,13 +180,17 @@ GuiSet(id, html := "") {
 	WB.Document.getElementById(id).innerHTML := html
 }
 
-; Move selection right 
+/*
+	Move selection right
+*/
 GuiRight() {
 	if (Selected < Match.MaxIndex())
 		GuiUpdate(+1)
 }
 
-; Move selection left 
+/*
+	Move selection left
+*/
 GuiLeft() {
 	if (Selected > Match.MinIndex())
 		GuiUpdate(-1)

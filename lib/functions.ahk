@@ -74,12 +74,13 @@ Hotkey(key, target) {
 
 /*
 	Convert file to new encoding
-		key
-			File to change
-		key
-			File to change
+		source
+			Path to file
 		target
-			Encoding to change to
+			Path to new file
+		encoding
+			Encoding to change to. Default: UTF-16
+			Possible encoding: UTF-8, UTF-16, UTF-8-RAW, CPXX. No BOM: UTF-8-RAW, UTF-16-RAW
 */
 ConvertFile(source, target := "", encoding := "UTF-16") {
 	if !target

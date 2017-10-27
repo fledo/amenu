@@ -50,7 +50,9 @@ Install() {
 	}
 }
 
-; Load all settings (but not paths to be scanned)
+/*
+	Load all settings (but not paths to be scanned)
+*/
 SettingsLoad() {
 	global
 
